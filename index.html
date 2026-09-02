@@ -1,0 +1,1428 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Privacy Policy for Feenak, the SMS-based location sharing application.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5f4ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111916" media="(prefers-color-scheme: dark)">
+  <title>Privacy Policy | Feenak</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f5f4ef;
+      --surface: #fffefa;
+      --surface-soft: #ebece5;
+      --ink: #17201d;
+      --muted: #5f6964;
+      --line: #d8dbd3;
+      --brand: #396c62;
+      --brand-dark: #234b44;
+      --brand-soft: #dfece7;
+      --warning: #9a5a24;
+      --warning-soft: #fff0df;
+      --shadow: 0 24px 70px rgba(28, 42, 37, 0.09);
+      --radius-large: 30px;
+      --radius-medium: 20px;
+      --content: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --page: #111916;
+        --surface: #18231f;
+        --surface-soft: #202d28;
+        --ink: #f3f6f2;
+        --muted: #b8c1bc;
+        --line: #32413b;
+        --brand: #85b9ad;
+        --brand-dark: #b5ded4;
+        --brand-soft: #263b35;
+        --warning: #efbd8c;
+        --warning-soft: #3b2b20;
+        --shadow: 0 26px 74px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--brand-soft) 82%, transparent) 0, transparent 28rem),
+        var(--page);
+      color: var(--ink);
+      font-family: "Segoe UI Variable Text", "Segoe UI", Tahoma, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html[lang="ar"] body {
+      font-family: Tahoma, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: var(--brand-dark);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid color-mix(in srgb, var(--brand) 48%, transparent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      inset-block-start: 12px;
+      inset-inline-start: 12px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: var(--surface);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      width: min(calc(100% - 32px), var(--content));
+      margin: 22px auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--brand);
+      color: var(--surface);
+      font-family: Georgia, serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      box-shadow: 0 10px 24px color-mix(in srgb, var(--brand) 24%, transparent);
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-weight: 760;
+      letter-spacing: -0.025em;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 90%, transparent);
+    }
+
+    .language-switch button {
+      min-width: 46px;
+      min-height: 38px;
+      padding: 7px 13px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      background: var(--ink);
+      color: var(--surface);
+    }
+
+    main {
+      width: min(calc(100% - 32px), var(--content));
+      margin: 34px auto 72px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(30px, 6vw, 72px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero::after {
+      content: "?";
+      position: absolute;
+      inset-block-start: -92px;
+      inset-inline-end: 18px;
+      color: color-mix(in srgb, var(--brand) 8%, transparent);
+      font-family: Georgia, serif;
+      font-size: clamp(230px, 34vw, 410px);
+      font-weight: 700;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .eyebrow,
+    .section-number {
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    html[lang="ar"] .eyebrow,
+    html[lang="ar"] .section-number {
+      letter-spacing: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-block-start: 0;
+    }
+
+    h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin-block-end: 20px;
+      font-family: "Segoe UI Variable Display", "Segoe UI", Tahoma, sans-serif;
+      font-size: clamp(42px, 8vw, 78px);
+      font-weight: 780;
+      letter-spacing: -0.055em;
+      line-height: 1.02;
+    }
+
+    html[lang="ar"] h1 {
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin-block-end: 28px;
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 21px);
+    }
+
+    .metadata,
+    .assurance-list {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .metadata {
+      margin-block-end: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .metadata li {
+      padding-inline-end: 12px;
+      border-inline-end: 1px solid var(--line);
+    }
+
+    .metadata li:last-child {
+      padding-inline-end: 0;
+      border-inline-end: 0;
+    }
+
+    .assurance-list li {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--brand-soft);
+      color: var(--brand-dark);
+      font-size: 13px;
+      font-weight: 720;
+    }
+
+    .assurance-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand);
+    }
+
+    .policy-layout {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.28fr) minmax(0, 0.72fr);
+      gap: 26px;
+      margin-block-start: 28px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 22px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-medium);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+    }
+
+    .toc strong {
+      display: block;
+      margin-block-end: 12px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    html[lang="ar"] .toc strong {
+      letter-spacing: 0;
+    }
+
+    .toc ol {
+      display: grid;
+      gap: 4px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: toc;
+    }
+
+    .toc li {
+      counter-increment: toc;
+    }
+
+    .toc a {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 6px;
+      padding: 6px 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero);
+      color: var(--brand-dark);
+      font-size: 11px;
+      font-weight: 800;
+      padding-block-start: 3px;
+    }
+
+    .toc a:hover {
+      color: var(--ink);
+    }
+
+    .policy-content {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-large);
+      background: var(--surface);
+    }
+
+    .policy-section {
+      padding: clamp(26px, 5vw, 48px);
+      border-block-end: 1px solid var(--line);
+      scroll-margin-top: 24px;
+    }
+
+    .policy-section:last-child {
+      border-block-end: 0;
+    }
+
+    .policy-section h2 {
+      margin-block: 7px 16px;
+      font-family: "Segoe UI Variable Display", "Segoe UI", Tahoma, sans-serif;
+      font-size: clamp(25px, 3.5vw, 34px);
+      letter-spacing: -0.035em;
+      line-height: 1.2;
+    }
+
+    html[lang="ar"] .policy-section h2 {
+      letter-spacing: -0.02em;
+      line-height: 1.45;
+    }
+
+    .policy-section h3 {
+      margin-block: 26px 8px;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .policy-section p:last-child,
+    .policy-section ul:last-child {
+      margin-block-end: 0;
+    }
+
+    .policy-section p,
+    .policy-section li {
+      color: var(--muted);
+    }
+
+    .policy-section ul {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding-inline-start: 22px;
+    }
+
+    .summary-card,
+    .important-note,
+    .contact-card {
+      padding: 22px;
+      border-radius: 18px;
+    }
+
+    .summary-card {
+      border: 1px solid color-mix(in srgb, var(--brand) 28%, var(--line));
+      background: var(--brand-soft);
+    }
+
+    .summary-card p,
+    .summary-card li {
+      color: var(--ink);
+    }
+
+    .important-note {
+      margin-block-start: 22px;
+      border: 1px solid color-mix(in srgb, var(--warning) 35%, transparent);
+      background: var(--warning-soft);
+    }
+
+    .important-note strong {
+      color: var(--warning);
+    }
+
+    .data-list {
+      display: grid;
+      gap: 12px;
+      margin-block-start: 22px;
+    }
+
+    .data-item {
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--surface-soft) 45%, var(--surface));
+    }
+
+    .data-item h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+    }
+
+    .data-item p {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .table-wrap {
+      margin-block-start: 22px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 620px;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 15px 16px;
+      border-block-end: 1px solid var(--line);
+      text-align: start;
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-block-end: 0;
+    }
+
+    th {
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    html[lang="ar"] th {
+      letter-spacing: 0;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    code {
+      padding: 2px 6px;
+      border-radius: 7px;
+      background: var(--surface-soft);
+      color: var(--ink);
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 0.9em;
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-block-start: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface-soft);
+    }
+
+    .contact-card p {
+      margin: 0;
+    }
+
+    .contact-card a {
+      flex: none;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--surface);
+      font-size: 14px;
+      font-weight: 720;
+      text-decoration: none;
+    }
+
+    footer {
+      width: min(calc(100% - 32px), var(--content));
+      margin: 0 auto 34px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 820px) {
+      .policy-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        position: static;
+      }
+
+      .toc ol {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 16px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .site-header,
+      main,
+      footer {
+        width: min(calc(100% - 22px), var(--content));
+      }
+
+      .site-header {
+        margin-block-start: 12px;
+      }
+
+      main {
+        margin-block-start: 22px;
+      }
+
+      .brand-name {
+        display: none;
+      }
+
+      .hero,
+      .policy-content {
+        border-radius: 22px;
+      }
+
+      .hero::after {
+        inset-inline-end: -40px;
+      }
+
+      .metadata {
+        display: grid;
+      }
+
+      .metadata li {
+        padding-inline-end: 0;
+        border-inline-end: 0;
+      }
+
+      .toc ol {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card,
+      footer {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .contact-card a {
+        align-self: flex-start;
+      }
+    }
+
+    @media print {
+      :root {
+        --page: #ffffff;
+        --surface: #ffffff;
+        --surface-soft: #f4f4f1;
+        --ink: #111111;
+        --muted: #333333;
+        --line: #d9d9d4;
+        --brand: #315f56;
+        --brand-dark: #234b44;
+        --brand-soft: #edf4f1;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .language-switch,
+      .skip-link,
+      .toc {
+        display: none;
+      }
+
+      main,
+      .site-header,
+      footer {
+        width: 100%;
+      }
+
+      .hero,
+      .policy-content {
+        box-shadow: none;
+      }
+
+      .policy-layout {
+        display: block;
+      }
+
+      .policy-section {
+        break-inside: avoid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#en-summary">Skip to policy</a>
+
+  <header class="site-header" aria-label="Site header">
+    <a class="brand" href="#top" aria-label="Feenak privacy policy home">
+      <span class="brand-mark" aria-hidden="true">?</span>
+      <span class="brand-name">Feenak <span lang="ar" dir="rtl">فينك</span></span>
+    </a>
+
+    <div class="language-switch" role="group" aria-label="Language">
+      <button type="button" data-language="en" aria-pressed="true">EN</button>
+      <button type="button" data-language="ar" aria-pressed="false" lang="ar">عربي</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <div data-language-panel="en">
+      <section class="hero" aria-labelledby="title-en">
+        <span class="eyebrow">Privacy policy</span>
+        <h1 id="title-en">Your location stays under your control.</h1>
+        <p class="hero-copy">
+          Feenak is an SMS-based location utility. This policy explains exactly what the app handles,
+          why it is needed, where it is stored, and when it leaves your phone.
+        </p>
+        <ul class="metadata" aria-label="Policy details">
+          <li>Effective: September 2, 2026</li>
+          <li>Last updated: September 2, 2026</li>
+          <li>Package: <code>com.feenak.app</code></li>
+        </ul>
+        <ul class="assurance-list" aria-label="Privacy highlights">
+          <li>No advertising</li>
+          <li>No analytics</li>
+          <li>No account required</li>
+          <li>No Feenak cloud server</li>
+        </ul>
+      </section>
+
+      <div class="policy-layout">
+        <nav class="toc" aria-label="Policy contents">
+          <strong>On this page</strong>
+          <ol>
+            <li><a href="#en-summary">Summary</a></li>
+            <li><a href="#en-scope">Scope and operator</a></li>
+            <li><a href="#en-data">Data handled</a></li>
+            <li><a href="#en-use">How data is used</a></li>
+            <li><a href="#en-sharing">Sharing</a></li>
+            <li><a href="#en-permissions">Permissions</a></li>
+            <li><a href="#en-retention">Retention and deletion</a></li>
+            <li><a href="#en-choices">Your choices</a></li>
+            <li><a href="#en-security">Security and limits</a></li>
+            <li><a href="#en-children">Children</a></li>
+            <li><a href="#en-rights">Your rights</a></li>
+            <li><a href="#en-changes">Changes</a></li>
+            <li><a href="#en-contact">Contact</a></li>
+          </ol>
+        </nav>
+
+        <article class="policy-content" id="policy-content">
+          <section class="policy-section" id="en-summary">
+            <span class="section-number">01 / Summary</span>
+            <h2>The short version</h2>
+            <div class="summary-card">
+              <ul>
+                <li>Feenak does not require an account and does not upload your address book, SMS history, or location history to a server operated by the developer.</li>
+                <li>Your settings, trusted contacts, selected SIM information, and message queue are stored in the app's private storage on your device.</li>
+                <li>Coordinates leave your device only when an enabled Feenak feature sends them by SMS, or when you deliberately open a map service.</li>
+                <li>The app contains no advertising SDK and no analytics SDK, and the developer does not sell personal data.</li>
+              </ul>
+            </div>
+            <div class="important-note">
+              <strong>Important:</strong> Feenak is not an emergency service. SMS can be delayed or intercepted,
+              location can be inaccurate or stale, and a displayed sender number is not cryptographic proof of identity.
+            </div>
+          </section>
+
+          <section class="policy-section" id="en-scope">
+            <span class="section-number">02 / Scope</span>
+            <h2>Scope and operator</h2>
+            <p>
+              This policy applies to the Feenak Android application (package <code>com.feenak.app</code>) and
+              this privacy-policy page. Feenak is operated by Hani Mohamed Sayed Ahmed, an independent developer,
+              referred to in this policy as “Feenak,” “we,” or “us.”
+            </p>
+            <p>
+              It does not govern your mobile carrier, Android, Google, OpenStreetMap, Google Maps, GitHub, or any
+              other service you choose to use alongside the app. Their own terms and privacy policies apply.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-data">
+            <span class="section-number">03 / Data</span>
+            <h2>Information the app handles</h2>
+            <div class="data-list">
+              <div class="data-item">
+                <h3>Location</h3>
+                <p>
+                  Approximate or precise latitude, longitude, accuracy, and fix time obtained from Android location
+                  services. Feenak uses a current or recently available fix to complete an enabled location reply,
+                  optional SIM-change alert, or map view. The app does not build a continuous route or movement history.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>Trusted and locatable contacts</h3>
+                <p>
+                  Names, phone numbers, country/formatting information, the relationship you assign to each number,
+                  and whether access is enabled. These records are created or imported by you and stored locally.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>New incoming and outgoing SMS</h3>
+                <p>
+                  For the core workflow, Feenak handles the sender or recipient number, the selected SIM, the exact
+                  request word “Feenak” or “فينك,” coordinate replies, delivery results, and pending retry state.
+                  Feenak does not request permission to read your stored SMS inbox or message history.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>Contacts selected from your address book</h3>
+                <p>
+                  If you use contact import, the app reads the names and numbers required to show the contact picker
+                  and saves only the entries you select. Contact data is not uploaded to a Feenak server.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>SIM and telephony information</h3>
+                <p>
+                  Active subscription identifiers, SIM slot, carrier/display name, and the line number when Android
+                  makes it available. Feenak stores a slot-and-subscription fingerprint to recognize SIM changes;
+                  it does not persist the SIM card ICCID.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>App preferences and operational state</h3>
+                <p>
+                  Language, theme, enabled features, selected SIMs, pending location-request state, and queued SMS
+                  replies. The app does not create a Feenak account or advertising profile.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="policy-section" id="en-use">
+            <span class="section-number">04 / Purpose</span>
+            <h2>How information is used</h2>
+            <ul>
+              <li>Verify that an incoming location command came from a number you authorized and, where configured, through an allowed SIM.</li>
+              <li>Obtain or use an available coordinate and reply only to the trusted sender who requested it.</li>
+              <li>Send an optional SIM-change alert, including a coordinate when available, to all numbers authorized for that alert.</li>
+              <li>Send a location request to a contact you selected, wait for its coordinate response, and display that point on a map.</li>
+              <li>Choose the correct SIM on multi-SIM phones and detect when an installed SIM changes.</li>
+              <li>Queue an outgoing reply after a temporary mobile-network failure and retry it when cellular service is available.</li>
+              <li>Keep your settings and trusted-number list available between app launches and device restarts.</li>
+            </ul>
+            <p>
+              Feenak does not use personal or sensitive information for advertising, analytics, profiling,
+              credit decisions, or sale to data brokers.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-sharing">
+            <span class="section-number">05 / Disclosure</span>
+            <h2>When information leaves your device</h2>
+            <h3>SMS recipients and mobile carriers</h3>
+            <p>
+              When a location reply or alert is sent, the destination number and coordinate message are provided to
+              Android's SMS service, your selected mobile carrier, intermediary networks, and the recipient. Standard
+              carrier fees may apply. SMS is not end-to-end encrypted by Feenak.
+            </p>
+            <h3>Google location services</h3>
+            <p>
+              Feenak uses Android and Google Play services to estimate device location. Depending on your device
+              settings, Google may process location inputs such as GPS, Wi-Fi, mobile networks, sensors, and IP address.
+              See <a href="https://policies.google.com/technologies/location-data" rel="noopener noreferrer">how Google uses location information</a>.
+            </p>
+            <h3>OpenStreetMap and Google Maps</h3>
+            <p>
+              The in-app map downloads tiles from OpenStreetMap infrastructure. Tile providers receive normal network
+              request information, including IP address and requested tile details, and the app may cache map tiles on
+              your device. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">OpenStreetMap Foundation Privacy Policy</a>.
+              If you choose “Open in Google Maps,” the location is passed to Google Maps under
+              <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>.
+            </p>
+            <h3>This policy website</h3>
+            <p>
+              This page contains no Feenak analytics, advertising pixels, or cookies. When hosted on GitHub Pages,
+              GitHub may process standard connection and website-usage data under its
+              <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">Privacy Statement</a>.
+            </p>
+            <p>
+              We may disclose information if legally required or to protect users and the public. We do not sell,
+              rent, or trade personal data.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-permissions">
+            <span class="section-number">06 / Permissions</span>
+            <h2>Android permissions and their purpose</h2>
+            <div class="table-wrap" role="region" aria-label="Android permissions" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Permission or capability</th>
+                    <th scope="col">Why Feenak uses it</th>
+                    <th scope="col">If denied</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Precise / approximate location</td>
+                    <td>Obtain a coordinate for SMS replies, SIM-change alerts, and map features.</td>
+                    <td>Feenak cannot create a new location reply or show your position.</td>
+                  </tr>
+                  <tr>
+                    <td>Background location</td>
+                    <td>Where requested by the installed version, complete a user-enabled trusted SMS request while the app is not visible. It is not used for continuous tracking.</td>
+                    <td>Background location replies may be unavailable; foreground features remain available.</td>
+                  </tr>
+                  <tr>
+                    <td>Receive SMS</td>
+                    <td>Recognize a new Feenak command from an authorized number and receive a coordinate response to a request you started.</td>
+                    <td>Automatic incoming commands and coordinate responses do not work.</td>
+                  </tr>
+                  <tr>
+                    <td>Send SMS</td>
+                    <td>Send coordinate replies, location requests, and optional SIM-change alerts.</td>
+                    <td>The app cannot send these messages automatically.</td>
+                  </tr>
+                  <tr>
+                    <td>Phone state and phone numbers</td>
+                    <td>Show active SIMs, select a sending/reply line, route SMS, and detect SIM changes.</td>
+                    <td>Multi-SIM selection and SIM-change detection may not work correctly.</td>
+                  </tr>
+                  <tr>
+                    <td>Contacts</td>
+                    <td>Let you select one or more contacts instead of typing them manually.</td>
+                    <td>You can still enter names and phone numbers manually.</td>
+                  </tr>
+                  <tr>
+                    <td>Notifications</td>
+                    <td>Show required Android status and operational notices for active or queued work.</td>
+                    <td>Some status notices may not be visible.</td>
+                  </tr>
+                  <tr>
+                    <td>Internet</td>
+                    <td>Load in-app map tiles. Core SMS transmission uses the cellular SMS network, not internet data.</td>
+                    <td>SMS can still work, but online map tiles may not load.</td>
+                  </tr>
+                  <tr>
+                    <td>Start after reboot</td>
+                    <td>Restore enabled local monitoring and queued SMS retry work after the device restarts.</td>
+                    <td>Features may require opening Feenak again after reboot.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="policy-section" id="en-retention">
+            <span class="section-number">07 / Retention</span>
+            <h2>Storage, retention, and deletion</h2>
+            <p>
+              Feenak stores app data in Android's private application storage. Android backup is disabled for the app.
+              Trusted contacts, SIM selections, settings, and the SIM baseline remain until you change them, clear the
+              app's data, or uninstall Feenak. A newer operational value may replace an older one.
+            </p>
+            <p>
+              Incoming command text is evaluated for the active workflow and is not copied into a Feenak message archive.
+              Pending request and queued-SMS records remain only as needed to finish, expire, or abandon that operation.
+              Map tiles may remain in the app cache until Android or Feenak clears them.
+            </p>
+            <p>
+              You can remove individual contacts inside Feenak. To erase all locally stored app data, use
+              <strong>Android Settings → Apps → Feenak → Storage → Clear data</strong>, or uninstall the app.
+              Because Feenak has no user account or developer-operated database, we do not hold a separate remote copy
+              for you to ask us to delete.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-choices">
+            <span class="section-number">08 / Control</span>
+            <h2>Your choices</h2>
+            <ul>
+              <li>Turn location replies and SIM-change alerts on or off in Feenak.</li>
+              <li>Add, edit, disable, or remove trusted and locatable numbers.</li>
+              <li>Select which SIM lines may receive or send app-related SMS.</li>
+              <li>Decline optional contact access and enter numbers manually.</li>
+              <li>Revoke location, SMS, phone, contacts, or notification permissions at any time in Android Settings.</li>
+              <li>Clear app data or uninstall Feenak to remove all locally stored records.</li>
+            </ul>
+            <p>
+              Revoking a permission can stop the feature that depends on it. Removing a message already delivered by
+              your carrier or stored on another person's phone is outside Feenak's control.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-security">
+            <span class="section-number">09 / Security</span>
+            <h2>Security and service limits</h2>
+            <p>
+              Feenak limits stored information to the app's private Android storage and does not operate a cloud account
+              database. We use reasonable technical safeguards, but no phone, radio network, or storage method is
+              completely secure.
+            </p>
+            <ul>
+              <li>SMS may be visible to mobile carriers, device administrators, malware, notification listeners, or anyone with access to either phone.</li>
+              <li>Phone numbers can be reassigned or spoofed in some network conditions; only authorize people you trust.</li>
+              <li>GPS and network-derived locations can be delayed, missing, or inaccurate.</li>
+              <li>Feenak should not be used as the sole method for emergency response, personal safety, or asset recovery.</li>
+            </ul>
+          </section>
+
+          <section class="policy-section" id="en-children">
+            <span class="section-number">10 / Children</span>
+            <h2>Children's privacy</h2>
+            <p>
+              Feenak is not designed or directed to children under 13. We do not knowingly operate a server that
+              collects personal data from children. A parent or guardian should supervise any use by a minor and decide
+              which contacts and permissions are appropriate. If you believe a child has sent information directly to
+              the developer, contact us so we can address it.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-rights">
+            <span class="section-number">11 / Rights</span>
+            <h2>Your privacy rights</h2>
+            <p>
+              Depending on where you live, privacy law may provide rights to access, correct, delete, restrict, or object
+              to processing of personal data. Most Feenak data is controlled directly on your device using the controls
+              described above. If you contact us about a legal privacy request, we may need enough information to verify
+              and answer it, and we will use that correspondence only for handling the request and meeting legal duties.
+            </p>
+            <p>
+              Mobile carriers, Google, OpenStreetMap infrastructure, GitHub, and other independent services may process
+              information in other countries. Contact those providers directly to exercise rights over data they control.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-changes">
+            <span class="section-number">12 / Updates</span>
+            <h2>Changes to this policy</h2>
+            <p>
+              We may update this policy when Feenak's features, permissions, service providers, or legal obligations
+              change. The revised page will show a new “Last updated” date. Material changes will also be communicated
+              in the app when required by law or platform policy.
+            </p>
+          </section>
+
+          <section class="policy-section" id="en-contact">
+            <span class="section-number">13 / Contact</span>
+            <h2>Contact the developer</h2>
+            <p>Questions, privacy requests, or security reports can be sent to the app operator:</p>
+            <div class="contact-card">
+              <p><strong>Hani Mohamed Sayed Ahmed</strong><br>Independent developer of Feenak</p>
+              <a href="mailto:hani.mohamedqa@gmail.com">hani.mohamedqa@gmail.com</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <div data-language-panel="ar" hidden lang="ar" dir="rtl">
+      <section class="hero" aria-labelledby="title-ar">
+        <span class="eyebrow">سياسة الخصوصية</span>
+        <h1 id="title-ar">موقعك يظل تحت سيطرتك.</h1>
+        <p class="hero-copy">
+          فينك أداة لتبادل الموقع عبر الرسائل النصية. توضح هذه السياسة البيانات التي يتعامل معها التطبيق،
+          وسبب استخدامها، ومكان حفظها، والحالات التي تغادر فيها هاتفك.
+        </p>
+        <ul class="metadata" aria-label="بيانات السياسة">
+          <li>تاريخ السريان: 2 سبتمبر 2026</li>
+          <li>آخر تحديث: 2 سبتمبر 2026</li>
+          <li>معرّف الحزمة: <code>com.feenak.app</code></li>
+        </ul>
+        <ul class="assurance-list" aria-label="ملخص الخصوصية">
+          <li>بلا إعلانات</li>
+          <li>بلا أدوات تحليل</li>
+          <li>لا يحتاج إلى حساب</li>
+          <li>لا توجد خوادم سحابية لفينك</li>
+        </ul>
+      </section>
+
+      <div class="policy-layout">
+        <nav class="toc" aria-label="محتويات السياسة">
+          <strong>في هذه الصفحة</strong>
+          <ol>
+            <li><a href="#ar-summary">الخلاصة</a></li>
+            <li><a href="#ar-scope">النطاق والمسؤول</a></li>
+            <li><a href="#ar-data">البيانات المستخدمة</a></li>
+            <li><a href="#ar-use">أوجه الاستخدام</a></li>
+            <li><a href="#ar-sharing">مشاركة البيانات</a></li>
+            <li><a href="#ar-permissions">الأذونات</a></li>
+            <li><a href="#ar-retention">الاحتفاظ والحذف</a></li>
+            <li><a href="#ar-choices">اختياراتك</a></li>
+            <li><a href="#ar-security">الأمان والحدود</a></li>
+            <li><a href="#ar-children">خصوصية الأطفال</a></li>
+            <li><a href="#ar-rights">حقوقك</a></li>
+            <li><a href="#ar-changes">تعديل السياسة</a></li>
+            <li><a href="#ar-contact">التواصل</a></li>
+          </ol>
+        </nav>
+
+        <article class="policy-content">
+          <section class="policy-section" id="ar-summary">
+            <span class="section-number">01 / الخلاصة</span>
+            <h2>المهم باختصار</h2>
+            <div class="summary-card">
+              <ul>
+                <li>لا يحتاج فينك إلى إنشاء حساب، ولا يرفع دفتر عناوينك أو سجل رسائلك أو سجل تحركاتك إلى خادم يملكه المطوّر.</li>
+                <li>تُحفظ الإعدادات والأرقام الموثوقة والشرائح المختارة وطابور الرسائل داخل المساحة الخاصة بالتطبيق على هاتفك.</li>
+                <li>لا تغادر الإحداثيات هاتفك إلا عند إرسالها عبر ميزة فعّلتها أنت، أو عندما تختار فتحها في خدمة خرائط.</li>
+                <li>لا يحتوي التطبيق على إعلانات أو أدوات تحليل استخدام، ولا يبيع المطوّر البيانات الشخصية.</li>
+              </ul>
+            </div>
+            <div class="important-note">
+              <strong>تنبيه مهم:</strong> فينك ليس خدمة طوارئ. قد تتأخر الرسائل أو تتعرض للاطلاع، وقد يكون الموقع
+              غير دقيق أو قديمًا، كما أن رقم المرسل الظاهر على الشبكة لا يُعد إثبات هوية مشفّرًا.
+            </div>
+          </section>
+
+          <section class="policy-section" id="ar-scope">
+            <span class="section-number">02 / النطاق</span>
+            <h2>نطاق السياسة والجهة المسؤولة</h2>
+            <p>
+              تسري هذه السياسة على تطبيق فينك لأندرويد، صاحب معرّف الحزمة <code>com.feenak.app</code>، وعلى صفحة
+              سياسة الخصوصية هذه. يشغّل التطبيق هاني محمد سيد أحمد بصفته مطوّرًا مستقلًا، ويُشار إليه هنا باسم
+              «فينك» أو «نحن».
+            </p>
+            <p>
+              لا تسري هذه السياسة على شركة الاتصالات أو نظام أندرويد أو Google أو OpenStreetMap أو Google Maps
+              أو GitHub أو أي خدمة أخرى تستخدمها مع التطبيق؛ إذ تخضع كل خدمة لشروطها وسياسة الخصوصية الخاصة بها.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-data">
+            <span class="section-number">03 / البيانات</span>
+            <h2>البيانات التي يتعامل معها التطبيق</h2>
+            <div class="data-list">
+              <div class="data-item">
+                <h3>بيانات الموقع</h3>
+                <p>
+                  خط العرض وخط الطول التقريبيان أو الدقيقان، ودقة الموقع، ووقت تسجيله كما يوفّرها أندرويد.
+                  يستخدم فينك موقعًا حاليًا أو متاحًا حديثًا لتنفيذ رد مفعّل، أو تنبيه اختياري عند تغيير الشريحة،
+                  أو عرض الخريطة. ولا ينشئ التطبيق سجلًا مستمرًا لمسارك أو تحركاتك.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>الأرقام الموثوقة والأرقام التي تحدد موقعها</h3>
+                <p>
+                  الاسم ورقم الهاتف وبيانات الدولة المستخدمة في التنسيق، ونوع الصلاحية التي تحددها لكل رقم،
+                  وحالة تفعيله. تنشئ أنت هذه السجلات أو تستوردها، وتظل محفوظة محليًا.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>الرسائل النصية الجديدة الواردة والصادرة</h3>
+                <p>
+                  لتنفيذ الوظيفة الأساسية، يتعامل فينك مع رقم المرسل أو المستلم، والشريحة المستخدمة، وكلمة الطلب
+                  «فينك» أو “Feenak”، ورسالة الإحداثيات، ونتيجة الإرسال، وحالة إعادة المحاولة. لا يطلب التطبيق إذنًا
+                  لقراءة صندوق رسائلك المحفوظ أو سجل الرسائل السابق.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>جهات الاتصال التي تختارها</h3>
+                <p>
+                  عند استخدام الاستيراد، يقرأ التطبيق الأسماء والأرقام اللازمة لعرض قائمة الاختيار، ثم يحفظ الجهات
+                  التي تحددها فقط. ولا تُرفع جهات الاتصال إلى خادم تابع لفينك.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>بيانات الشرائح والاتصال الهاتفي</h3>
+                <p>
+                  معرّفات الاشتراكات النشطة، وموضع الشريحة، واسمها أو اسم شركة الاتصالات، ورقم الخط إذا أتاحه
+                  أندرويد. يحتفظ فينك ببصمة مكوّنة من موضع الشريحة ومعرّف الاشتراك لاكتشاف التغيير، ولا يحفظ رقم
+                  تعريف بطاقة SIM المعروف باسم ICCID.
+                </p>
+              </div>
+              <div class="data-item">
+                <h3>إعدادات التطبيق وحالته التشغيلية</h3>
+                <p>
+                  اللغة والمظهر والميزات المفعّلة والشرائح المختارة وحالة طلب الموقع الجاري وطابور رسائل SMS.
+                  لا ينشئ التطبيق حسابًا أو ملفًا إعلانيًا للمستخدم.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section class="policy-section" id="ar-use">
+            <span class="section-number">04 / الغرض</span>
+            <h2>لماذا نستخدم هذه البيانات؟</h2>
+            <ul>
+              <li>التأكد من أن طلب الموقع الوارد أرسله رقم سمحت له بذلك، ومن خلال شريحة مسموح بها عند تفعيل هذا الاختيار.</li>
+              <li>الحصول على إحداثيات متاحة والرد على الرقم الموثوق الذي أرسل الطلب فقط.</li>
+              <li>إرسال تنبيه اختياري عند تغيير الشريحة، متضمنًا الموقع إن كان متاحًا، إلى جميع الأرقام المصرّح لها باستلام التنبيه.</li>
+              <li>إرسال طلب موقع إلى رقم اخترته، وانتظار رد الإحداثيات، ثم عرض النقطة على الخريطة.</li>
+              <li>اختيار الشريحة الصحيحة في الأجهزة متعددة الشرائح والتعرّف على تغيير شريحة مثبتة.</li>
+              <li>وضع الرد الصادر في طابور بعد تعذّر مؤقت في شبكة الهاتف، ثم إعادة المحاولة عند عودة الخدمة.</li>
+              <li>الاحتفاظ بإعداداتك وقائمة الأرقام بين مرات فتح التطبيق وبعد إعادة تشغيل الهاتف.</li>
+            </ul>
+            <p>
+              لا يستخدم فينك البيانات الشخصية أو الحساسة للإعلانات أو تحليل السلوك أو إنشاء الملفات التعريفية أو
+              قرارات الائتمان أو البيع لوسطاء البيانات.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-sharing">
+            <span class="section-number">05 / الإفصاح</span>
+            <h2>متى تغادر البيانات هاتفك؟</h2>
+            <h3>مستلمو الرسائل وشركات الاتصالات</h3>
+            <p>
+              عند إرسال رد بالموقع أو تنبيه، يسلّم التطبيق رقم المستلم ورسالة الإحداثيات إلى خدمة SMS في أندرويد،
+              وشركة الاتصالات المختارة، والشبكات الوسيطة، ثم إلى المستلم. قد تُطبق رسوم الرسائل المعتادة، ولا يضيف
+              فينك تشفيرًا شاملًا بين الطرفين إلى رسائل SMS.
+            </p>
+            <h3>خدمات الموقع من Google</h3>
+            <p>
+              يعتمد فينك على أندرويد وGoogle Play services لتقدير موقع الجهاز. ووفق إعدادات هاتفك، قد تعالج Google
+              مدخلات مثل GPS وشبكات Wi-Fi وشبكة الهاتف والحساسات وعنوان IP. يمكنك مراجعة
+              <a href="https://policies.google.com/technologies/location-data?hl=ar" rel="noopener noreferrer">كيفية استخدام Google لبيانات الموقع</a>.
+            </p>
+            <h3>OpenStreetMap وGoogle Maps</h3>
+            <p>
+              تحمّل الخريطة داخل التطبيق مربعاتها من بنية OpenStreetMap. تتلقى خوادم الخرائط بيانات الاتصال المعتادة،
+              ومنها عنوان IP وتفاصيل مربعات الخريطة المطلوبة، وقد يحتفظ التطبيق بهذه المربعات مؤقتًا على الهاتف.
+              راجع <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">سياسة خصوصية مؤسسة OpenStreetMap</a>.
+              وإذا اخترت الفتح في Google Maps، تُمرر الإحداثيات إلى Google Maps وفق
+              <a href="https://policies.google.com/privacy?hl=ar" rel="noopener noreferrer">سياسة خصوصية Google</a>.
+            </p>
+            <h3>موقع سياسة الخصوصية</h3>
+            <p>
+              لا تضيف هذه الصفحة أدوات تحليل تابعة لفينك أو وحدات إعلانية أو ملفات تعريف ارتباط. عند استضافتها عبر
+              GitHub Pages، قد تعالج GitHub بيانات الاتصال والاستخدام المعتادة وفق
+              <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener noreferrer">بيان الخصوصية الخاص بها</a>.
+            </p>
+            <p>
+              قد نفصح عن معلومات إذا ألزمنا القانون بذلك أو لحماية المستخدمين والجمهور. ولا نبيع البيانات الشخصية
+              أو نؤجرها أو نتاجر بها.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-permissions">
+            <span class="section-number">06 / الأذونات</span>
+            <h2>أذونات أندرويد وسبب طلبها</h2>
+            <div class="table-wrap" role="region" aria-label="أذونات أندرويد" tabindex="0">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">الإذن أو الإمكانية</th>
+                    <th scope="col">سبب الاستخدام</th>
+                    <th scope="col">ما الذي يحدث عند الرفض؟</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>الموقع الدقيق أو التقريبي</td>
+                    <td>الحصول على إحداثيات لردود الرسائل وتنبيه تغيير الشريحة وميزات الخريطة.</td>
+                    <td>لن يتمكن فينك من إنشاء رد موقع جديد أو عرض موقعك.</td>
+                  </tr>
+                  <tr>
+                    <td>الموقع في الخلفية</td>
+                    <td>في الإصدارات التي تطلبه، يُستخدم لإتمام طلب موثوق فعّلته أنت عندما لا يكون التطبيق ظاهرًا، وليس للتتبع المستمر.</td>
+                    <td>قد لا تعمل ردود الموقع أثناء وجود التطبيق في الخلفية، بينما تظل ميزات الواجهة متاحة.</td>
+                  </tr>
+                  <tr>
+                    <td>استقبال SMS</td>
+                    <td>التعرّف على طلب فينك الجديد من رقم مصرح له، واستقبال رد الإحداثيات لطلب بدأته أنت.</td>
+                    <td>لن تعمل الطلبات الواردة وردود الإحداثيات تلقائيًا.</td>
+                  </tr>
+                  <tr>
+                    <td>إرسال SMS</td>
+                    <td>إرسال ردود الإحداثيات وطلبات الموقع وتنبيه تغيير الشريحة الاختياري.</td>
+                    <td>لن يتمكن التطبيق من إرسال هذه الرسائل تلقائيًا.</td>
+                  </tr>
+                  <tr>
+                    <td>حالة الهاتف وأرقام الخطوط</td>
+                    <td>عرض الشرائح النشطة واختيار شريحة الإرسال أو الرد وتوجيه الرسائل واكتشاف تغيير الشريحة.</td>
+                    <td>قد لا يعمل اختيار الشرائح أو اكتشاف تغييرها بصورة صحيحة.</td>
+                  </tr>
+                  <tr>
+                    <td>جهات الاتصال</td>
+                    <td>اختيار جهة اتصال واحدة أو أكثر بدل إدخالها يدويًا.</td>
+                    <td>يمكنك إدخال الاسم ورقم الهاتف يدويًا.</td>
+                  </tr>
+                  <tr>
+                    <td>الإشعارات</td>
+                    <td>عرض إشعارات الحالة والتشغيل التي يفرضها أندرويد للأعمال النشطة أو المؤجلة.</td>
+                    <td>قد لا تظهر بعض إشعارات الحالة.</td>
+                  </tr>
+                  <tr>
+                    <td>الإنترنت</td>
+                    <td>تحميل مربعات الخريطة داخل التطبيق. يعتمد إرسال SMS الأساسي على شبكة الرسائل وليس باقة الإنترنت.</td>
+                    <td>قد تعمل الرسائل، لكن الخريطة المتصلة بالإنترنت لن تُحمّل.</td>
+                  </tr>
+                  <tr>
+                    <td>البدء بعد إعادة التشغيل</td>
+                    <td>استعادة المراقبة المحلية المفعّلة وأعمال إعادة إرسال الرسائل بعد تشغيل الهاتف.</td>
+                    <td>قد تحتاج إلى فتح فينك مرة أخرى بعد إعادة تشغيل الهاتف.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="policy-section" id="ar-retention">
+            <span class="section-number">07 / الاحتفاظ</span>
+            <h2>التخزين والاحتفاظ والحذف</h2>
+            <p>
+              يحفظ فينك بياناته داخل المساحة الخاصة بالتطبيق في أندرويد، مع تعطيل النسخ الاحتياطي الخاص بالتطبيق.
+              تبقى الأرقام والشرائح المختارة والإعدادات وخط الأساس للشرائح حتى تعدلها أو تمسح بيانات التطبيق أو
+              تزيله من الهاتف، وقد تحل قيمة تشغيلية أحدث محل قيمة أقدم.
+            </p>
+            <p>
+              تُفحص كلمة الطلب الواردة لتنفيذ المهمة الجارية، ولا ينشئ فينك منها أرشيف رسائل مستقلًا. تُحفظ حالة
+              الطلب وطابور الإرسال للمدة اللازمة حتى يكتمل الإجراء أو تنتهي صلاحيته أو يُلغى. وقد تبقى مربعات
+              الخريطة في الذاكرة المؤقتة حتى يمسحها أندرويد أو التطبيق.
+            </p>
+            <p>
+              يمكنك حذف أي رقم من داخل فينك. ولمسح كل البيانات المحلية، استخدم
+              <strong>إعدادات أندرويد ← التطبيقات ← فينك ← التخزين ← مسح البيانات</strong>، أو أزل التطبيق.
+              ولأن فينك لا ينشئ حسابًا ولا يملك قاعدة بيانات للمستخدمين على خادم، فلا توجد نسخة أخرى لدينا تحتاج
+              إلى تقديم طلب منفصل لحذفها.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-choices">
+            <span class="section-number">08 / التحكم</span>
+            <h2>اختياراتك</h2>
+            <ul>
+              <li>تشغيل ردود الموقع وتنبيهات تغيير الشريحة أو إيقافها من داخل فينك.</li>
+              <li>إضافة الأرقام أو تعديلها أو تعطيلها أو حذفها.</li>
+              <li>اختيار الشرائح التي يجوز استخدامها لاستقبال رسائل التطبيق أو إرسالها.</li>
+              <li>رفض إذن جهات الاتصال الاختياري وإدخال الأسماء والأرقام يدويًا.</li>
+              <li>سحب أذونات الموقع أو الرسائل أو الهاتف أو جهات الاتصال أو الإشعارات في أي وقت من إعدادات أندرويد.</li>
+              <li>مسح بيانات التطبيق أو إزالته للتخلص من جميع السجلات المحفوظة محليًا.</li>
+            </ul>
+            <p>
+              يؤدي سحب الإذن إلى توقف الميزة المعتمدة عليه. أما الرسالة التي سبق أن سلّمتها شركة الاتصالات أو
+              حُفظت على هاتف شخص آخر، فلا يستطيع فينك حذفها.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-security">
+            <span class="section-number">09 / الأمان</span>
+            <h2>الأمان وحدود الخدمة</h2>
+            <p>
+              يقصر فينك التخزين على المساحة الخاصة بالتطبيق في أندرويد، ولا يشغّل قاعدة حسابات سحابية. نتخذ إجراءات
+              تقنية معقولة، لكن لا توجد وسيلة تخزين أو شبكة هاتف أو جهاز آمنة بنسبة مئة بالمئة.
+            </p>
+            <ul>
+              <li>قد تطّلع شركة الاتصالات أو مسؤول الجهاز أو برمجيات ضارة أو خدمات قراءة الإشعارات أو أي شخص يصل إلى أحد الهاتفين على رسائل SMS.</li>
+              <li>قد تُعاد أرقام الهاتف لمستخدمين جدد أو يجري انتحالها في بعض ظروف الشبكة؛ لذلك لا تسمح إلا لمن تثق بهم.</li>
+              <li>قد يتأخر الموقع المستخرج من GPS أو الشبكة، أو يتعذر الحصول عليه، أو يكون غير دقيق.</li>
+              <li>لا تستخدم فينك وحده للطوارئ أو ضمان السلامة الشخصية أو استرداد الممتلكات.</li>
+            </ul>
+          </section>
+
+          <section class="policy-section" id="ar-children">
+            <span class="section-number">10 / الأطفال</span>
+            <h2>خصوصية الأطفال</h2>
+            <p>
+              فينك غير مصمم أو موجّه للأطفال دون 13 عامًا. ولا نشغّل خادمًا يجمع عن قصد بيانات شخصية منهم.
+              ينبغي لولي الأمر الإشراف على استخدام القاصر وتحديد الأرقام والأذونات المناسبة له. إذا كنت تعتقد أن
+              طفلًا أرسل بيانات مباشرة إلى المطوّر، فتواصل معنا لمعالجة الأمر.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-rights">
+            <span class="section-number">11 / الحقوق</span>
+            <h2>حقوقك المتعلقة بالخصوصية</h2>
+            <p>
+              قد يمنحك القانون في بلدك حقوقًا في الاطلاع على البيانات الشخصية أو تصحيحها أو حذفها أو تقييد معالجتها
+              أو الاعتراض عليها. تتحكم في معظم بيانات فينك بنفسك من هاتفك باستخدام الأدوات الموضحة أعلاه. إذا راسلتنا
+              بشأن طلب قانوني، فقد نحتاج إلى معلومات كافية للتحقق منه والرد عليه، ولن نستخدم المراسلات إلا لمعالجة
+              الطلب والوفاء بالالتزامات القانونية.
+            </p>
+            <p>
+              قد تعالج شركات الاتصالات وGoogle وبنية OpenStreetMap وGitHub وغيرها من الخدمات المستقلة البيانات في
+              دول أخرى. تواصل مع الجهة المعنية مباشرة لممارسة حقوقك على البيانات التي تتحكم فيها.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-changes">
+            <span class="section-number">12 / التحديثات</span>
+            <h2>تعديل هذه السياسة</h2>
+            <p>
+              قد نحدّث هذه السياسة عند تغيير ميزات فينك أو أذوناته أو الجهات الخارجية المستخدمة أو الالتزامات
+              القانونية. ستوضح الصفحة المعدلة تاريخ «آخر تحديث» الجديد، وسننبّه إلى التغييرات الجوهرية داخل التطبيق
+              متى ألزم القانون أو متجر التطبيقات بذلك.
+            </p>
+          </section>
+
+          <section class="policy-section" id="ar-contact">
+            <span class="section-number">13 / التواصل</span>
+            <h2>التواصل مع المطوّر</h2>
+            <p>يمكنك إرسال الأسئلة أو طلبات الخصوصية أو بلاغات الأمان إلى مشغّل التطبيق:</p>
+            <div class="contact-card">
+              <p><strong>هاني محمد سيد أحمد</strong><br>المطوّر المستقل لتطبيق فينك</p>
+              <a href="mailto:hani.mohamedqa@gmail.com" dir="ltr">hani.mohamedqa@gmail.com</a>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Feenak. All rights reserved.</span>
+    <span>This page does not use Feenak analytics or advertising cookies.</span>
+  </footer>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const buttons = [...document.querySelectorAll("[data-language]")];
+      const panels = [...document.querySelectorAll("[data-language-panel]")];
+
+      function setLanguage(language) {
+        const isArabic = language === "ar";
+        root.lang = language;
+        root.dir = isArabic ? "rtl" : "ltr";
+        document.title = isArabic ? "سياسة الخصوصية | فينك" : "Privacy Policy | Feenak";
+
+        const skipLink = document.querySelector(".skip-link");
+        if (skipLink) {
+          skipLink.href = isArabic ? "#ar-summary" : "#en-summary";
+          skipLink.textContent = isArabic ? "انتقل إلى السياسة" : "Skip to policy";
+        }
+
+        panels.forEach((panel) => {
+          panel.hidden = panel.dataset.languagePanel !== language;
+        });
+
+        buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.language === language));
+        });
+
+        const footer = document.querySelector("footer");
+        if (footer) {
+          footer.dir = isArabic ? "rtl" : "ltr";
+          footer.innerHTML = isArabic
+            ? "<span>© 2026 فينك. جميع الحقوق محفوظة.</span><span>لا تستخدم هذه الصفحة أدوات تحليل أو ملفات إعلانات تابعة لفينك.</span>"
+            : "<span>© 2026 Feenak. All rights reserved.</span><span>This page does not use Feenak analytics or advertising cookies.</span>";
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => setLanguage(button.dataset.language));
+      });
+
+      setLanguage(navigator.language.toLowerCase().startsWith("ar") ? "ar" : "en");
+    })();
+  </script>
+</body>
+</html>
