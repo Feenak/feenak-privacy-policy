@@ -249,7 +249,6 @@
       font-size: clamp(17px, 2.2vw, 21px);
     }
 
-    .metadata,
     .assurance-list {
       position: relative;
       z-index: 1;
@@ -259,22 +258,6 @@
       margin: 0;
       padding: 0;
       list-style: none;
-    }
-
-    .metadata {
-      margin-block-end: 28px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .metadata li {
-      padding-inline-end: 12px;
-      border-inline-end: 1px solid var(--line);
-    }
-
-    .metadata li:last-child {
-      padding-inline-end: 0;
-      border-inline-end: 0;
     }
 
     .assurance-list li {
@@ -600,15 +583,6 @@
         inset-inline-end: -40px;
       }
 
-      .metadata {
-        display: grid;
-      }
-
-      .metadata li {
-        padding-inline-end: 0;
-        border-inline-end: 0;
-      }
-
       .toc ol {
         grid-template-columns: 1fr;
       }
@@ -698,11 +672,6 @@
           Feenak is an SMS-based location utility. This policy explains exactly what the app handles,
           why it is needed, where it is stored, and when it leaves your phone.
         </p>
-        <ul class="metadata" aria-label="Policy details">
-          <li>Effective: September 2, 2026</li>
-          <li>Last updated: September 4, 2026</li>
-          <li>Package: <code>com.feenak.app</code></li>
-        </ul>
         <ul class="assurance-list" aria-label="Privacy highlights">
           <li>No advertising</li>
           <li>No analytics</li>
@@ -1056,11 +1025,6 @@
           فينك أداة لتبادل الموقع عبر الرسائل النصية. توضح هذه السياسة البيانات التي يتعامل معها التطبيق،
           وسبب استخدامها، ومكان حفظها، والحالات التي تغادر فيها هاتفك.
         </p>
-        <ul class="metadata" aria-label="بيانات السياسة">
-          <li>تاريخ السريان: 2 سبتمبر 2026</li>
-          <li>آخر تحديث: 4 سبتمبر 2026</li>
-          <li>معرّف الحزمة: <code>com.feenak.app</code></li>
-        </ul>
         <ul class="assurance-list" aria-label="ملخص الخصوصية">
           <li>بلا إعلانات</li>
           <li>بلا أدوات تحليل</li>
