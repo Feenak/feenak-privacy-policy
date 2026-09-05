@@ -700,7 +700,7 @@
         </p>
         <ul class="metadata" aria-label="Policy details">
           <li>Effective: September 2, 2026</li>
-          <li>Last updated: September 2, 2026</li>
+          <li>Last updated: September 4, 2026</li>
           <li>Package: <code>com.feenak.app</code></li>
         </ul>
         <ul class="assurance-list" aria-label="Privacy highlights">
@@ -772,7 +772,9 @@
                 <p>
                   Approximate or precise latitude, longitude, accuracy, and fix time obtained from Android location
                   services. Feenak uses a current or recently available fix to complete an enabled location reply,
-                  optional SIM-change alert, or map view. The app does not build a continuous route or movement history.
+                  or optional SIM-change alert. Acquisition requests at most one update, is limited to 40 seconds, and may use a fix from the last
+                  30 seconds. The map displays coordinates received by SMS. The app does not build a continuous
+                  route or movement history.
                 </p>
               </div>
               <div class="data-item">
@@ -871,6 +873,12 @@
           <section class="policy-section" id="en-permissions">
             <span class="section-number">06 / Permissions</span>
             <h2>Android permissions and their purpose</h2>
+            <p>
+              Foreground location is requested in Android's native permission dialog, separately from background
+              access. Background access is explained when you choose to enable automatic replies; on Android 11
+              and later it must be granted in app settings. Contact access is requested only for import. If Android
+              stops showing a permission prompt after repeated denial, you can restore access in app settings.
+            </p>
             <div class="table-wrap" role="region" aria-label="Android permissions" tabindex="0">
               <table>
                 <thead>
@@ -883,13 +891,13 @@
                 <tbody>
                   <tr>
                     <td>Precise / approximate location</td>
-                    <td>Obtain a coordinate for SMS replies, SIM-change alerts, and map features.</td>
-                    <td>Feenak cannot create a new location reply or show your position.</td>
+                    <td>Obtain a coordinate for SMS replies and SIM-change alerts. Precise access is required to enable automatic replies.</td>
+                    <td>Automatic location replies cannot be enabled. You can still view a location received by SMS.</td>
                   </tr>
                   <tr>
                     <td>Background location</td>
-                    <td>Where requested by the installed version, complete a user-enabled trusted SMS request while the app is not visible. It is not used for continuous tracking.</td>
-                    <td>Background location replies may be unavailable; foreground features remain available.</td>
+                    <td>Complete a user-enabled trusted SMS request while the app is not visible. It is not used for continuous tracking.</td>
+                    <td>Automatic replies cannot be enabled. Managing contacts and requesting another phone's location remain available with their required permissions.</td>
                   </tr>
                   <tr>
                     <td>Receive SMS</td>
@@ -903,8 +911,8 @@
                   </tr>
                   <tr>
                     <td>Phone state and phone numbers</td>
-                    <td>Show active SIMs, select a sending/reply line, route SMS, and detect SIM changes.</td>
-                    <td>Multi-SIM selection and SIM-change detection may not work correctly.</td>
+                    <td>Show active SIMs, select a sending/reply line, route SMS, and detect SIM changes. Reading a line number is optional when enabling SIM alerts.</td>
+                    <td>Phone state is needed for SIM-based features. Without number access, alerts can omit the line number.</td>
                   </tr>
                   <tr>
                     <td>Contacts</td>
@@ -941,7 +949,13 @@
             </p>
             <p>
               Incoming command text is evaluated for the active workflow and is not copied into a Feenak message archive.
-              Pending request and queued-SMS records remain only as needed to finish, expire, or abandon that operation.
+              A location request waits up to 40 seconds for a reply and displays valid coordinates as soon as they
+              arrive. Successful and timed-out request records remain locally available until you close the lookup
+              or replace it with another request. A retry sends a new SMS and may incur a carrier charge; a timeout
+              does not automatically send another request. The outgoing reply queue holds up to 512 messages;
+              each may be submitted at most eight times and is not retried after 24 hours. On the next queue processing
+              pass, expired records and replies whose recipient, SIM, or feature is no longer authorized are removed.
+              Messages already submitted to Android or a carrier cannot be recalled by switching a feature off.
               Map tiles may remain in the app cache until Android or Feenak clears them.
             </p>
             <p>
@@ -1044,7 +1058,7 @@
         </p>
         <ul class="metadata" aria-label="بيانات السياسة">
           <li>تاريخ السريان: 2 سبتمبر 2026</li>
-          <li>آخر تحديث: 2 سبتمبر 2026</li>
+          <li>آخر تحديث: 4 سبتمبر 2026</li>
           <li>معرّف الحزمة: <code>com.feenak.app</code></li>
         </ul>
         <ul class="assurance-list" aria-label="ملخص الخصوصية">
@@ -1115,8 +1129,9 @@
                 <h3>بيانات الموقع</h3>
                 <p>
                   خط العرض وخط الطول التقريبيان أو الدقيقان، ودقة الموقع، ووقت تسجيله كما يوفّرها أندرويد.
-                  يستخدم فينك موقعًا حاليًا أو متاحًا حديثًا لتنفيذ رد مفعّل، أو تنبيه اختياري عند تغيير الشريحة،
-                  أو عرض الخريطة. ولا ينشئ التطبيق سجلًا مستمرًا لمسارك أو تحركاتك.
+                  يستخدم فينك موقعًا حاليًا أو متاحًا حديثًا لتنفيذ رد مفعّل أو تنبيه اختياري عند تغيير الشريحة.
+                  يطلب التطبيق قراءة موقع واحدة بحد أقصى خلال 40 ثانية، وقد يستخدم قراءة من آخر 30 ثانية. تعرض الخريطة
+                  الإحداثيات الواردة عبر الرسائل. ولا ينشئ التطبيق سجلًا مستمرًا لمسارك أو تحركاتك.
                 </p>
               </div>
               <div class="data-item">
@@ -1215,6 +1230,12 @@
           <section class="policy-section" id="ar-permissions">
             <span class="section-number">06 / الأذونات</span>
             <h2>أذونات أندرويد وسبب طلبها</h2>
+            <p>
+              يطلب فينك إذن الموقع أثناء الاستخدام من نافذة أندرويد المعتادة، بصورة منفصلة عن إذن الخلفية.
+              يظهر شرح إذن الخلفية عندما تختار تشغيل الرد التلقائي؛ وفي أندرويد 11 وما بعده يجب السماح به
+              من إعدادات التطبيق. يُطلب إذن جهات الاتصال عند الاستيراد فقط. وإذا توقف أندرويد عن عرض طلب إذن
+              بعد رفضه أكثر من مرة، يمكنك السماح به من إعدادات التطبيق.
+            </p>
             <div class="table-wrap" role="region" aria-label="أذونات أندرويد" tabindex="0">
               <table>
                 <thead>
@@ -1227,13 +1248,13 @@
                 <tbody>
                   <tr>
                     <td>الموقع الدقيق أو التقريبي</td>
-                    <td>الحصول على إحداثيات لردود الرسائل وتنبيه تغيير الشريحة وميزات الخريطة.</td>
-                    <td>لن يتمكن فينك من إنشاء رد موقع جديد أو عرض موقعك.</td>
+                    <td>الحصول على إحداثيات لردود الرسائل وتنبيه تغيير الشريحة. تشغيل الرد التلقائي يتطلب إذن الموقع الدقيق.</td>
+                    <td>لن تتمكن من تشغيل الرد التلقائي، لكن يمكنك عرض موقع وصلك عبر رسالة.</td>
                   </tr>
                   <tr>
                     <td>الموقع في الخلفية</td>
-                    <td>في الإصدارات التي تطلبه، يُستخدم لإتمام طلب موثوق فعّلته أنت عندما لا يكون التطبيق ظاهرًا، وليس للتتبع المستمر.</td>
-                    <td>قد لا تعمل ردود الموقع أثناء وجود التطبيق في الخلفية، بينما تظل ميزات الواجهة متاحة.</td>
+                    <td>إتمام طلب موثوق فعّلته أنت عندما لا يكون التطبيق ظاهرًا، وليس للتتبع المستمر.</td>
+                    <td>لن تتمكن من تشغيل الرد التلقائي. تظل إدارة الأرقام وطلب موقع هاتف آخر متاحة مع منح الأذونات الخاصة بها.</td>
                   </tr>
                   <tr>
                     <td>استقبال SMS</td>
@@ -1247,8 +1268,8 @@
                   </tr>
                   <tr>
                     <td>حالة الهاتف وأرقام الخطوط</td>
-                    <td>عرض الشرائح النشطة واختيار شريحة الإرسال أو الرد وتوجيه الرسائل واكتشاف تغيير الشريحة.</td>
-                    <td>قد لا يعمل اختيار الشرائح أو اكتشاف تغييرها بصورة صحيحة.</td>
+                    <td>عرض الشرائح النشطة واختيار شريحة الإرسال أو الرد وتوجيه الرسائل واكتشاف تغيير الشريحة. قراءة رقم الخط اختيارية عند تشغيل تنبيهات الشرائح.</td>
+                    <td>ميزات الشرائح تحتاج إذن حالة الهاتف. عند رفض قراءة رقم الخط، يمكن إرسال التنبيه من دون ذكر رقمه.</td>
                   </tr>
                   <tr>
                     <td>جهات الاتصال</td>
@@ -1284,9 +1305,14 @@
               تزيله من الهاتف، وقد تحل قيمة تشغيلية أحدث محل قيمة أقدم.
             </p>
             <p>
-              تُفحص كلمة الطلب الواردة لتنفيذ المهمة الجارية، ولا ينشئ فينك منها أرشيف رسائل مستقلًا. تُحفظ حالة
-              الطلب وطابور الإرسال للمدة اللازمة حتى يكتمل الإجراء أو تنتهي صلاحيته أو يُلغى. وقد تبقى مربعات
-              الخريطة في الذاكرة المؤقتة حتى يمسحها أندرويد أو التطبيق.
+              تُفحص كلمة الطلب الواردة لتنفيذ المهمة الجارية، ولا ينشئ فينك منها أرشيف رسائل مستقلًا. ينتظر طلب
+              الموقع الرد لمدة 40 ثانية، ويعرض الإحداثيات فور وصولها. تبقى نتيجة الطلب، سواء وصل الموقع أو انتهت
+              المهلة، محليًا حتى تغلق صفحة الطلب أو تبدأ طلبًا جديدًا. إعادة المحاولة ترسل رسالة جديدة وقد تُحسب
+              تكلفتها على خطك؛ انتهاء المهلة لا يرسل طلبًا آخر تلقائيًا. يتسع طابور
+              الردود لـ512 رسالة بحد أقصى، ولكل رسالة ثماني محاولات إرسال، ولا تُعاد المحاولة بعد مرور 24 ساعة.
+              عند معالجة الطابور مجددًا، تُحذف الرسائل المنتهية والردود التي لم تعد صلاحية الرقم أو الشريحة أو
+              الميزة تسمح بإرسالها. إيقاف الميزة لا يسترجع رسالة سُلّمت بالفعل لأندرويد أو شركة الاتصالات.
+              وقد تبقى مربعات الخريطة في الذاكرة المؤقتة حتى يمسحها أندرويد أو التطبيق.
             </p>
             <p>
               يمكنك حذف أي رقم من داخل فينك. ولمسح كل البيانات المحلية، استخدم
