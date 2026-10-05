@@ -676,8 +676,9 @@
           <li>No advertising</li>
           <li>No analytics</li>
           <li>No account required</li>
-          <li>No Feenak cloud server</li>
+          <li>Your saved information stays on your phone</li>
         </ul>
+        <p class="hero-copy">Last updated: <time datetime="2026-10-05">October 5, 2026</time></p>
       </section>
 
       <div class="policy-layout">
@@ -706,15 +707,16 @@
             <h2>The short version</h2>
             <div class="summary-card">
               <ul>
-                <li>Feenak does not require an account and does not upload your address book, SMS history, or location history to a server operated by the developer.</li>
-                <li>Your settings, trusted contacts, selected SIM information, and message queue are stored in the app's private storage on your device.</li>
-                <li>Coordinates leave your device only when an enabled Feenak feature sends them by SMS, or when you deliberately open a map service.</li>
-                <li>The app contains no advertising SDK and no analytics SDK, and the developer does not sell personal data.</li>
+                <li>You can use Feenak without creating an account. We do not upload your contacts, request history, or saved locations to a Feenak server.</li>
+                <li>Your allowed numbers, location requests, notifications, SIM names and selections, and settings are saved on your phone.</li>
+                <li>Automatic replies share your location by SMS only with a number you have allowed, while the service is enabled and the receiving SIM is selected.</li>
+                <li>SMS requests do not need internet data. Viewing an online map uses the map provider's services and shares the information needed to display that area.</li>
+                <li>Feenak has no advertising or usage analytics, and we do not sell your personal data.</li>
               </ul>
             </div>
             <div class="important-note">
               <strong>Important:</strong> Feenak is not an emergency service. SMS can be delayed or intercepted,
-              location can be inaccurate or stale, and a displayed sender number is not cryptographic proof of identity.
+              location can be inaccurate or stale, and a displayed sender number can be incorrect or spoofed.
             </div>
           </section>
 
@@ -722,7 +724,7 @@
             <span class="section-number">02 / Scope</span>
             <h2>Scope and operator</h2>
             <p>
-              This policy applies to the Feenak Android application (package <code>com.feenak.app</code>) and
+              This policy applies to the Feenak Android application and
               this privacy-policy page. Feenak is operated by Hani Mohamed Sayed Ahmed, an independent developer,
               referred to in this policy as “Feenak,” “we,” or “us.”
             </p>
@@ -739,18 +741,19 @@
               <div class="data-item">
                 <h3>Location</h3>
                 <p>
-                  Approximate or precise latitude, longitude, accuracy, and fix time obtained from Android location
-                  services. Feenak uses a current or recently available fix to complete an enabled location reply,
-                  or optional SIM-change alert. Acquisition requests at most one update, is limited to 40 seconds, and may use a fix from the last
-                  30 seconds. The map displays coordinates received by SMS. The app does not build a continuous
-                  route or movement history.
+                  Your phone's location is used to answer an allowed person's request when automatic replies are
+                  enabled. Feenak may use a recent available location if a fresh one cannot be obtained promptly.
+                  Locations you receive from others are saved with your request history. Feenak does not continuously
+                  track your movements. The time a reply reaches your phone does not necessarily show how recently
+                  the other phone determined its location.
                 </p>
               </div>
               <div class="data-item">
                 <h3>Trusted and locatable contacts</h3>
                 <p>
-                  Names, phone numbers, country/formatting information, the relationship you assign to each number,
-                  and whether access is enabled. These records are created or imported by you and stored locally.
+                  Names, phone numbers, and country information for the people you add or choose from your contacts.
+                  Feenak keeps separate lists for people allowed to request your location and people whose location
+                  you want to request. Adding someone to the second list does not give them access to your location.
                 </p>
               </div>
               <div class="data-item">
@@ -771,16 +774,17 @@
               <div class="data-item">
                 <h3>SIM and telephony information</h3>
                 <p>
-                  Active subscription identifiers, SIM slot, carrier/display name, and the line number when Android
-                  makes it available. Feenak stores a slot-and-subscription fingerprint to recognize SIM changes;
-                  it does not persist the SIM card ICCID.
+                  The SIMs installed on your phone, their network names, any names you give them, and your selections
+                  for receiving or sending location messages. A SIM's phone number may be available through Android.
+                  This information helps Feenak recognize SIM changes and use the correct line. A newly detected SIM
+                  is not automatically enabled for location replies.
                 </p>
               </div>
               <div class="data-item">
-                <h3>App preferences and operational state</h3>
+                <h3>App settings and message progress</h3>
                 <p>
                   Language, theme, enabled features, selected SIMs, pending location-request state, and queued SMS
-                  replies. The app does not create a Feenak account or advertising profile.
+                  replies. These records remain in Android's private app storage on your device.
                 </p>
               </div>
             </div>
@@ -792,7 +796,7 @@
             <ul>
               <li>Verify that an incoming location command came from a number you authorized and, where configured, through an allowed SIM.</li>
               <li>Obtain or use an available coordinate and reply only to the trusted sender who requested it.</li>
-              <li>Send an optional SIM-change alert, including a coordinate when available, to all numbers authorized for that alert.</li>
+              <li>SIM-change and phone-shutdown alerts are unavailable in this version and do not send messages or locations.</li>
               <li>Send a location request to a contact you selected, wait for its coordinate response, and display that point on a map.</li>
               <li>Choose the correct SIM on multi-SIM phones and detect when an installed SIM changes.</li>
               <li>Queue an outgoing reply after a temporary mobile-network failure and retry it when cellular service is available.</li>
@@ -809,7 +813,7 @@
             <h2>When information leaves your device</h2>
             <h3>SMS recipients and mobile carriers</h3>
             <p>
-              When a location reply or alert is sent, the destination number and coordinate message are provided to
+              When a location request or reply is sent, the destination number and message are provided to
               Android's SMS service, your selected mobile carrier, intermediary networks, and the recipient. Standard
               carrier fees may apply. SMS is not end-to-end encrypted by Feenak.
             </p>
@@ -819,13 +823,17 @@
               settings, Google may process location inputs such as GPS, Wi-Fi, mobile networks, sensors, and IP address.
               See <a href="https://policies.google.com/technologies/location-data" rel="noopener noreferrer">how Google uses location information</a>.
             </p>
-            <h3>OpenStreetMap and Google Maps</h3>
+            <h3>Online maps and the map app you choose</h3>
             <p>
-              The in-app map downloads tiles from OpenStreetMap infrastructure. Tile providers receive normal network
-              request information, including IP address and requested tile details, and the app may cache map tiles on
-              your device. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">OpenStreetMap Foundation Privacy Policy</a>.
-              If you choose “Open in Google Maps,” the location is passed to Google Maps under
+              The in-app map loads the area you view from OpenStreetMap. The map provider receives information
+              needed to show that area, including your internet connection's address and the area requested. Parts
+              of the map may be saved temporarily on your device. See the <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">OpenStreetMap Foundation Privacy Policy</a>.
+              If you open a saved location in another app, Android lets you choose an available map app. Feenak
+              passes the location to the app you choose, whose own privacy policy then applies. The Google Maps
+              button on the live result also shares that location with Google Maps under
               <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>.
+              If the in-app map cannot load, the received location still remains in your history. An external map
+              app may also need internet access unless it has suitable offline maps.
             </p>
             <h3>This policy website</h3>
             <p>
@@ -860,7 +868,7 @@
                 <tbody>
                   <tr>
                     <td>Precise / approximate location</td>
-                    <td>Obtain a coordinate for SMS replies and SIM-change alerts. Precise access is required to enable automatic replies.</td>
+                    <td>Obtain a coordinate for SMS replies. Precise access is required to enable automatic replies.</td>
                     <td>Automatic location replies cannot be enabled. You can still view a location received by SMS.</td>
                   </tr>
                   <tr>
@@ -875,13 +883,13 @@
                   </tr>
                   <tr>
                     <td>Send SMS</td>
-                    <td>Send coordinate replies, location requests, and optional SIM-change alerts.</td>
+                    <td>Send coordinate replies and location requests. SIM-change and shutdown alerts are disabled.</td>
                     <td>The app cannot send these messages automatically.</td>
                   </tr>
                   <tr>
                     <td>Phone state and phone numbers</td>
-                    <td>Show active SIMs, select a sending/reply line, route SMS, and detect SIM changes. Reading a line number is optional when enabling SIM alerts.</td>
-                    <td>Phone state is needed for SIM-based features. Without number access, alerts can omit the line number.</td>
+                    <td>Show active SIMs, select a sending/reply line, route SMS, and detect SIM changes. Optional line-number metadata may be read if access was previously granted; no alert-enabling number-access prompt is shown in this version.</td>
+                    <td>Phone state is needed for SIM-based features. Missing line-number access does not enable or disable the unavailable alerts.</td>
                   </tr>
                   <tr>
                     <td>Contacts</td>
@@ -890,13 +898,13 @@
                   </tr>
                   <tr>
                     <td>Notifications</td>
-                    <td>Show required Android status and operational notices for active or queued work.</td>
+                    <td>Show notices about automatic replies and messages waiting to be sent.</td>
                     <td>Some status notices may not be visible.</td>
                   </tr>
                   <tr>
                     <td>Internet</td>
-                    <td>Load in-app map tiles. Core SMS transmission uses the cellular SMS network, not internet data.</td>
-                    <td>SMS can still work, but online map tiles may not load.</td>
+                    <td>Display the OpenStreetMap area you view. Sending SMS uses the phone network, not internet data.</td>
+                    <td>The in-app map cannot load new areas. The received location remains available, and you can open the same point in a map app when it can display that area.</td>
                   </tr>
                   <tr>
                     <td>Start after reboot</td>
@@ -913,25 +921,38 @@
             <h2>Storage, retention, and deletion</h2>
             <p>
               Feenak stores app data in Android's private application storage. Android backup is disabled for the app.
-              Trusted contacts, SIM selections, settings, and the SIM baseline remain until you change them, clear the
-              app's data, or uninstall Feenak. A newer operational value may replace an older one.
+              Added contacts, SIM names and selections, settings, and information used to recognize your SIMs remain
+              until you change them, clear the app's data, or uninstall Feenak.
             </p>
             <p>
-              Incoming command text is evaluated for the active workflow and is not copied into a Feenak message archive.
-              A location request waits up to 40 seconds for a reply and displays valid coordinates as soon as they
-              arrive. Successful and timed-out request records remain locally available until you close the lookup
-              or replace it with another request. A retry sends a new SMS and may incur a carrier charge; a timeout
-              does not automatically send another request. The outgoing reply queue holds up to 512 messages;
-              each may be submitted at most eight times and is not retried after 24 hours. On the next queue processing
-              pass, expired records and replies whose recipient, SIM, or feature is no longer authorized are removed.
-              Messages already submitted to Android or a carrier cannot be recalled by switching a feature off.
-              Map tiles may remain in the app cache until Android or Feenak clears them.
+              Feenak checks new location messages to carry out your requests; it does not keep a separate copy of
+              your SMS inbox. Temporary unsent replies may be kept on your phone and retried when mobile service
+              returns, subject to your current permissions and choices. Retrying a request sends a new SMS and may
+              incur another carrier charge. Switching off replies cannot recall a message already sent. Downloaded
+              map images may remain on your phone until the app's stored data is cleared.
+            </p>
+            <p>
+              Your location requests and their results are saved automatically on your phone, including the person's
+              name and number, the SIM used, the request time, and the location and arrival time if a reply is received.
+              The result is saved even if the map does not load or you leave without pressing Close. You can delete
+              one or several requests from History, including all requests for selected numbers. Closing the map or
+              removing a contact does not delete the saved history. History remains until you delete it, clear the
+              app's data, or uninstall Feenak. It is not uploaded to us.
+            </p>
+            <p>
+              Notifications on your phone show requests from your allowed contacts, including attempts while
+              automatic replies are off. They contain the person's name and number, the time of the attempt,
+              whether you have opened the notification, and the reply's status. When known, they can show that
+              replies were off or that sending failed; a sending failure cannot establish whether the cause was
+              network coverage or insufficient balance. Notifications do not store the SMS text or location.
+              Opening the inbox marks its loaded notifications as read. A delivery report does not prove the
+              recipient read the message. Notifications remain on your phone until you clear app data or uninstall.
             </p>
             <p>
               You can remove individual contacts inside Feenak. To erase all locally stored app data, use
               <strong>Android Settings → Apps → Feenak → Storage → Clear data</strong>, or uninstall the app.
-              Because Feenak has no user account or developer-operated database, we do not hold a separate remote copy
-              for you to ask us to delete.
+              Feenak has no app account or cloud profile. Clearing app data or uninstalling removes the records stored
+              by Feenak on that device, subject to copies already held by SMS recipients, carriers, or map providers.
             </p>
           </section>
 
@@ -939,8 +960,9 @@
             <span class="section-number">08 / Control</span>
             <h2>Your choices</h2>
             <ul>
-              <li>Turn location replies and SIM-change alerts on or off in Feenak.</li>
-              <li>Add, edit, disable, or remove trusted and locatable numbers.</li>
+              <li>Turn automatic location replies on or off in Feenak. SIM-change and shutdown alerts cannot be enabled in this version.</li>
+              <li>Add, edit, or remove allowed numbers and people whose locations you request.</li>
+              <li>Delete individual or multiple location requests from History.</li>
               <li>Select which SIM lines may receive or send app-related SMS.</li>
               <li>Decline optional contact access and enter numbers manually.</li>
               <li>Revoke location, SMS, phone, contacts, or notification permissions at any time in Android Settings.</li>
@@ -956,9 +978,9 @@
             <span class="section-number">09 / Security</span>
             <h2>Security and service limits</h2>
             <p>
-              Feenak limits stored information to the app's private Android storage and does not operate a cloud account
-              database. We use reasonable technical safeguards, but no phone, radio network, or storage method is
-              completely secure.
+              Feenak keeps its operational SMS, SIM, contact, request, and location state in Android's private app
+              storage and does not maintain an app account or cloud database. We use reasonable technical safeguards,
+              but no phone, radio network, map service, or storage method is completely secure.
             </p>
             <ul>
               <li>SMS may be visible to mobile carriers, device administrators, malware, notification listeners, or anyone with access to either phone.</li>
@@ -972,8 +994,8 @@
             <span class="section-number">10 / Children</span>
             <h2>Children's privacy</h2>
             <p>
-              Feenak is not designed or directed to children under 13. We do not knowingly operate a server that
-              collects personal data from children. A parent or guardian should supervise any use by a minor and decide
+              Feenak is not designed or directed to children under 13.
+              A parent or guardian should supervise any use by a minor and decide
               which contacts and permissions are appropriate. If you believe a child has sent information directly to
               the developer, contact us so we can address it.
             </p>
@@ -1028,9 +1050,10 @@
         <ul class="assurance-list" aria-label="ملخص الخصوصية">
           <li>بلا إعلانات</li>
           <li>بلا أدوات تحليل</li>
-          <li>لا يحتاج إلى حساب</li>
-          <li>لا توجد خوادم سحابية لفينك</li>
+          <li>لا تحتاج إلى حساب</li>
+          <li>بياناتك المحفوظة تبقى على هاتفك</li>
         </ul>
+        <p class="hero-copy">آخر تحديث: <time datetime="2026-10-05">5 أكتوبر 2026</time></p>
       </section>
 
       <div class="policy-layout">
@@ -1059,15 +1082,16 @@
             <h2>المهم باختصار</h2>
             <div class="summary-card">
               <ul>
-                <li>لا يحتاج فينك إلى إنشاء حساب، ولا يرفع دفتر عناوينك أو سجل رسائلك أو سجل تحركاتك إلى خادم يملكه المطوّر.</li>
-                <li>تُحفظ الإعدادات والأرقام الموثوقة والشرائح المختارة وطابور الرسائل داخل المساحة الخاصة بالتطبيق على هاتفك.</li>
-                <li>لا تغادر الإحداثيات هاتفك إلا عند إرسالها عبر ميزة فعّلتها أنت، أو عندما تختار فتحها في خدمة خرائط.</li>
+                <li>يمكنك استخدام فينك دون إنشاء حساب. لا نرفع جهات اتصالك أو سجل الطلبات أو المواقع المحفوظة إلى خادم تابع لفينك.</li>
+                <li>تُحفظ الأرقام المسموح لها وطلبات الموقع والإشعارات وأسماء الشرائح واختياراتك وإعداداتك على هاتفك.</li>
+                <li>يرسل الرد التلقائي موقعك برسالة نصية إلى رقم سمحت له فقط، عندما يكون الرد مفعّلًا وتكون شريحة استقبال الطلب مختارة.</li>
+                <li>طلب الموقع بالرسائل لا يحتاج إلى الإنترنت. عرض خريطة متصلة يستخدم خدمات مزوّد الخرائط ويشارك معه المعلومات اللازمة لعرض تلك المنطقة.</li>
                 <li>لا يحتوي التطبيق على إعلانات أو أدوات تحليل استخدام، ولا يبيع المطوّر البيانات الشخصية.</li>
               </ul>
             </div>
             <div class="important-note">
               <strong>تنبيه مهم:</strong> فينك ليس خدمة طوارئ. قد تتأخر الرسائل أو تتعرض للاطلاع، وقد يكون الموقع
-              غير دقيق أو قديمًا، كما أن رقم المرسل الظاهر على الشبكة لا يُعد إثبات هوية مشفّرًا.
+              غير دقيق أو قديمًا، كما أن رقم المرسل الظاهر قد يكون غير صحيح أو منتحلًا.
             </div>
           </section>
 
@@ -1075,7 +1099,7 @@
             <span class="section-number">02 / النطاق</span>
             <h2>نطاق السياسة والجهة المسؤولة</h2>
             <p>
-              تسري هذه السياسة على تطبيق فينك لأندرويد، صاحب معرّف الحزمة <code>com.feenak.app</code>، وعلى صفحة
+              تسري هذه السياسة على تطبيق فينك لأندرويد وعلى صفحة
               سياسة الخصوصية هذه. يشغّل التطبيق هاني محمد سيد أحمد بصفته مطوّرًا مستقلًا، ويُشار إليه هنا باسم
               «فينك» أو «نحن».
             </p>
@@ -1092,17 +1116,18 @@
               <div class="data-item">
                 <h3>بيانات الموقع</h3>
                 <p>
-                  خط العرض وخط الطول التقريبيان أو الدقيقان، ودقة الموقع، ووقت تسجيله كما يوفّرها أندرويد.
-                  يستخدم فينك موقعًا حاليًا أو متاحًا حديثًا لتنفيذ رد مفعّل أو تنبيه اختياري عند تغيير الشريحة.
-                  يطلب التطبيق قراءة موقع واحدة بحد أقصى خلال 40 ثانية، وقد يستخدم قراءة من آخر 30 ثانية. تعرض الخريطة
-                  الإحداثيات الواردة عبر الرسائل. ولا ينشئ التطبيق سجلًا مستمرًا لمسارك أو تحركاتك.
+                  يستخدم فينك موقع هاتفك للرد على طلب من شخص سمحت له عندما يكون الرد التلقائي مفعّلًا.
+                  قد يستخدم موقعًا متاحًا حديثًا إذا تعذّر الحصول على موقع جديد بسرعة. تُحفظ المواقع التي تستلمها
+                  من الآخرين ضمن سجل طلباتك. لا يتتبع فينك تحركاتك باستمرار، ووقت وصول الرد إلى هاتفك لا يثبت
+                  بالضرورة مدى حداثة الموقع الذي حدده الهاتف الآخر.
                 </p>
               </div>
               <div class="data-item">
                 <h3>الأرقام الموثوقة والأرقام التي تحدد موقعها</h3>
                 <p>
-                  الاسم ورقم الهاتف وبيانات الدولة المستخدمة في التنسيق، ونوع الصلاحية التي تحددها لكل رقم،
-                  وحالة تفعيله. تنشئ أنت هذه السجلات أو تستوردها، وتظل محفوظة محليًا.
+                  أسماء الأشخاص وأرقام هواتفهم وبيانات الدولة للأرقام التي تضيفها أو تختارها من جهات اتصالك.
+                  يحتفظ فينك بقائمة للأرقام المسموح لها بطلب موقعك، وقائمة أخرى للأشخاص الذين تريد طلب موقعهم.
+                  إضافة شخص إلى القائمة الثانية لا تمنحه إذنًا بمعرفة موقعك.
                 </p>
               </div>
               <div class="data-item">
@@ -1123,16 +1148,16 @@
               <div class="data-item">
                 <h3>بيانات الشرائح والاتصال الهاتفي</h3>
                 <p>
-                  معرّفات الاشتراكات النشطة، وموضع الشريحة، واسمها أو اسم شركة الاتصالات، ورقم الخط إذا أتاحه
-                  أندرويد. يحتفظ فينك ببصمة مكوّنة من موضع الشريحة ومعرّف الاشتراك لاكتشاف التغيير، ولا يحفظ رقم
-                  تعريف بطاقة SIM المعروف باسم ICCID.
+                  الشرائح الموجودة على هاتفك وأسماء شبكاتها والأسماء التي تختارها لها واختياراتك لاستقبال
+                  رسائل الموقع أو إرسالها. قد يتيح أندرويد رقم هاتف الشريحة أيضًا. تساعد هذه المعلومات فينك على
+                  التعرّف على تغيير الشرائح واستخدام الخط الصحيح. اكتشاف شريحة جديدة لا يفعّل الرد بالموقع عليها تلقائيًا.
                 </p>
               </div>
               <div class="data-item">
-                <h3>إعدادات التطبيق وحالته التشغيلية</h3>
+                <h3>إعدادات التطبيق وحالة الرسائل</h3>
                 <p>
                   اللغة والمظهر والميزات المفعّلة والشرائح المختارة وحالة طلب الموقع الجاري وطابور رسائل SMS.
-                  لا ينشئ التطبيق حسابًا أو ملفًا إعلانيًا للمستخدم.
+                  تظل هذه السجلات داخل المساحة الخاصة بالتطبيق على جهازك.
                 </p>
               </div>
             </div>
@@ -1144,7 +1169,7 @@
             <ul>
               <li>التأكد من أن طلب الموقع الوارد أرسله رقم سمحت له بذلك، ومن خلال شريحة مسموح بها عند تفعيل هذا الاختيار.</li>
               <li>الحصول على إحداثيات متاحة والرد على الرقم الموثوق الذي أرسل الطلب فقط.</li>
-              <li>إرسال تنبيه اختياري عند تغيير الشريحة، متضمنًا الموقع إن كان متاحًا، إلى جميع الأرقام المصرّح لها باستلام التنبيه.</li>
+              <li>تنبيهات تغيير الشريحة وإغلاق الهاتف غير متاحة في هذه النسخة، ولا ترسل رسائل أو مواقع.</li>
               <li>إرسال طلب موقع إلى رقم اخترته، وانتظار رد الإحداثيات، ثم عرض النقطة على الخريطة.</li>
               <li>اختيار الشريحة الصحيحة في الأجهزة متعددة الشرائح والتعرّف على تغيير شريحة مثبتة.</li>
               <li>وضع الرد الصادر في طابور بعد تعذّر مؤقت في شبكة الهاتف، ثم إعادة المحاولة عند عودة الخدمة.</li>
@@ -1161,7 +1186,7 @@
             <h2>متى تغادر البيانات هاتفك؟</h2>
             <h3>مستلمو الرسائل وشركات الاتصالات</h3>
             <p>
-              عند إرسال رد بالموقع أو تنبيه، يسلّم التطبيق رقم المستلم ورسالة الإحداثيات إلى خدمة SMS في أندرويد،
+              عند إرسال طلب موقع أو الرد عليه، يسلّم التطبيق رقم المستلم والرسالة إلى خدمة الرسائل في أندرويد،
               وشركة الاتصالات المختارة، والشبكات الوسيطة، ثم إلى المستلم. قد تُطبق رسوم الرسائل المعتادة، ولا يضيف
               فينك تشفيرًا شاملًا بين الطرفين إلى رسائل SMS.
             </p>
@@ -1171,13 +1196,17 @@
               مدخلات مثل GPS وشبكات Wi-Fi وشبكة الهاتف والحساسات وعنوان IP. يمكنك مراجعة
               <a href="https://policies.google.com/technologies/location-data?hl=ar" rel="noopener noreferrer">كيفية استخدام Google لبيانات الموقع</a>.
             </p>
-            <h3>OpenStreetMap وGoogle Maps</h3>
+            <h3>الخرائط المتصلة والتطبيق الذي تختاره</h3>
             <p>
-              تحمّل الخريطة داخل التطبيق مربعاتها من بنية OpenStreetMap. تتلقى خوادم الخرائط بيانات الاتصال المعتادة،
-              ومنها عنوان IP وتفاصيل مربعات الخريطة المطلوبة، وقد يحتفظ التطبيق بهذه المربعات مؤقتًا على الهاتف.
+              تحمّل الخريطة داخل التطبيق المنطقة التي تعرضها من OpenStreetMap. يتلقى مزوّد الخرائط المعلومات اللازمة
+              لعرضها، ومنها عنوان اتصالك بالإنترنت والمنطقة المطلوبة. وقد تُحفظ أجزاء من الخريطة مؤقتًا على هاتفك.
               راجع <a href="https://osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer">سياسة خصوصية مؤسسة OpenStreetMap</a>.
-              وإذا اخترت الفتح في Google Maps، تُمرر الإحداثيات إلى Google Maps وفق
+              عند فتح موقع محفوظ في تطبيق آخر، يتيح لك أندرويد اختيار أحد تطبيقات الخرائط المتاحة.
+              يمرر فينك الموقع إلى التطبيق الذي تختاره، وتسري عليه سياسة خصوصية ذلك التطبيق.
+              يشارك زر Google Maps في صفحة النتيجة الموقع مع Google Maps وفق
               <a href="https://policies.google.com/privacy?hl=ar" rel="noopener noreferrer">سياسة خصوصية Google</a>.
+              إذا تعذّر تحميل الخريطة داخل فينك، يظل الموقع المستلم محفوظًا في السجل.
+              قد يحتاج تطبيق الخرائط الخارجي إلى الإنترنت أيضًا، إلا إذا كانت لديه خرائط مناسبة محفوظة دون اتصال.
             </p>
             <h3>موقع سياسة الخصوصية</h3>
             <p>
@@ -1212,7 +1241,7 @@
                 <tbody>
                   <tr>
                     <td>الموقع الدقيق أو التقريبي</td>
-                    <td>الحصول على إحداثيات لردود الرسائل وتنبيه تغيير الشريحة. تشغيل الرد التلقائي يتطلب إذن الموقع الدقيق.</td>
+                    <td>الحصول على إحداثيات لردود الرسائل. تشغيل الرد التلقائي يتطلب إذن الموقع الدقيق.</td>
                     <td>لن تتمكن من تشغيل الرد التلقائي، لكن يمكنك عرض موقع وصلك عبر رسالة.</td>
                   </tr>
                   <tr>
@@ -1227,13 +1256,13 @@
                   </tr>
                   <tr>
                     <td>إرسال SMS</td>
-                    <td>إرسال ردود الإحداثيات وطلبات الموقع وتنبيه تغيير الشريحة الاختياري.</td>
+                    <td>إرسال ردود الإحداثيات وطلبات الموقع. تنبيهات تغيير الشريحة وإغلاق الهاتف معطّلة.</td>
                     <td>لن يتمكن التطبيق من إرسال هذه الرسائل تلقائيًا.</td>
                   </tr>
                   <tr>
                     <td>حالة الهاتف وأرقام الخطوط</td>
-                    <td>عرض الشرائح النشطة واختيار شريحة الإرسال أو الرد وتوجيه الرسائل واكتشاف تغيير الشريحة. قراءة رقم الخط اختيارية عند تشغيل تنبيهات الشرائح.</td>
-                    <td>ميزات الشرائح تحتاج إذن حالة الهاتف. عند رفض قراءة رقم الخط، يمكن إرسال التنبيه من دون ذكر رقمه.</td>
+                    <td>عرض الشرائح النشطة واختيار شريحة الإرسال أو الرد وتوجيه الرسائل واكتشاف تغيير الشريحة. قد تُقرأ بيانات رقم الخط الاختيارية إذا سبق منح الإذن؛ لا تعرض هذه النسخة طلب إذن قراءة الرقم لتفعيل التنبيهات.</td>
+                    <td>ميزات الشرائح تحتاج إذن حالة الهاتف. عدم منح إذن قراءة الرقم لا يفعّل التنبيهات غير المتاحة أو يعطّلها.</td>
                   </tr>
                   <tr>
                     <td>جهات الاتصال</td>
@@ -1247,8 +1276,8 @@
                   </tr>
                   <tr>
                     <td>الإنترنت</td>
-                    <td>تحميل مربعات الخريطة داخل التطبيق. يعتمد إرسال SMS الأساسي على شبكة الرسائل وليس باقة الإنترنت.</td>
-                    <td>قد تعمل الرسائل، لكن الخريطة المتصلة بالإنترنت لن تُحمّل.</td>
+                    <td>عرض المنطقة التي تختارها على خريطة OpenStreetMap. يعتمد إرسال SMS على شبكة الهاتف وليس باقة الإنترنت.</td>
+                    <td>لن تحمل الخريطة مناطق جديدة. يظل الموقع المستلم متاحًا، ويمكنك فتح النقطة نفسها في تطبيق خرائط عندما يتمكن من عرض المنطقة.</td>
                   </tr>
                   <tr>
                     <td>البدء بعد إعادة التشغيل</td>
@@ -1265,24 +1294,35 @@
             <h2>التخزين والاحتفاظ والحذف</h2>
             <p>
               يحفظ فينك بياناته داخل المساحة الخاصة بالتطبيق في أندرويد، مع تعطيل النسخ الاحتياطي الخاص بالتطبيق.
-              تبقى الأرقام والشرائح المختارة والإعدادات وخط الأساس للشرائح حتى تعدلها أو تمسح بيانات التطبيق أو
-              تزيله من الهاتف، وقد تحل قيمة تشغيلية أحدث محل قيمة أقدم.
+              تبقى الأرقام المضافة وأسماء الشرائح واختياراتك والإعدادات والمعلومات اللازمة للتعرف على شرائحك،
+              حتى تعدلها أو تمسح بيانات التطبيق أو تزيله من الهاتف.
             </p>
             <p>
-              تُفحص كلمة الطلب الواردة لتنفيذ المهمة الجارية، ولا ينشئ فينك منها أرشيف رسائل مستقلًا. ينتظر طلب
-              الموقع الرد لمدة 40 ثانية، ويعرض الإحداثيات فور وصولها. تبقى نتيجة الطلب، سواء وصل الموقع أو انتهت
-              المهلة، محليًا حتى تغلق صفحة الطلب أو تبدأ طلبًا جديدًا. إعادة المحاولة ترسل رسالة جديدة وقد تُحسب
-              تكلفتها على خطك؛ انتهاء المهلة لا يرسل طلبًا آخر تلقائيًا. يتسع طابور
-              الردود لـ512 رسالة بحد أقصى، ولكل رسالة ثماني محاولات إرسال، ولا تُعاد المحاولة بعد مرور 24 ساعة.
-              عند معالجة الطابور مجددًا، تُحذف الرسائل المنتهية والردود التي لم تعد صلاحية الرقم أو الشريحة أو
-              الميزة تسمح بإرسالها. إيقاف الميزة لا يسترجع رسالة سُلّمت بالفعل لأندرويد أو شركة الاتصالات.
-              وقد تبقى مربعات الخريطة في الذاكرة المؤقتة حتى يمسحها أندرويد أو التطبيق.
+              يفحص فينك رسائل الموقع الجديدة لتنفيذ طلباتك، ولا يحتفظ بنسخة مستقلة من صندوق رسائلك.
+              قد يحتفظ بالردود التي تعذّر إرسالها مؤقتًا على هاتفك، ويعيد المحاولة عند عودة شبكة الهاتف،
+              وفق أذوناتك واختياراتك الحالية. إعادة طلب الموقع ترسل رسالة جديدة وقد تترتب عليها تكلفة أخرى.
+              إيقاف الرد التلقائي لا يسترجع رسالة أُرسلت بالفعل. قد تبقى صور الخرائط المحمّلة على هاتفك
+              حتى تمسح البيانات المحفوظة للتطبيق.
+            </p>
+            <p>
+              تُحفظ طلبات موقعك ونتائجها تلقائيًا على هاتفك، بما فيها اسم الشخص ورقمه والشريحة المستخدمة
+              ووقت الطلب والموقع ووقت وصوله إذا استلمت ردًا. تُحفظ النتيجة حتى إذا لم تتحمل الخريطة أو غادرت
+              دون الضغط على «إغلاق». يمكنك حذف طلب واحد أو عدة طلبات من السجل، أو حذف جميع الطلبات
+              الخاصة بأرقام تحددها. إغلاق الخريطة أو حذف جهة اتصال لا يحذف سجلها المحفوظ.
+              يبقى السجل حتى تحذفه أو تمسح بيانات التطبيق أو تزيل فينك. لا نرفع هذه البيانات إلينا.
+            </p>
+            <p>
+              تعرض إشعارات هاتفك محاولات الأرقام المسموح لها لطلب موقعك، حتى عندما يكون الرد التلقائي مقفولًا.
+              تتضمن اسم الشخص ورقمه ووقت المحاولة وما إذا فتحت الإشعار وحالة الرد. عندما يكون السبب معروفًا،
+              قد يظهر أن الرد كان مقفولًا أو أن الإرسال فشل؛ فشل الإرسال لا يثبت وحده هل السبب الشبكة أم الرصيد.
+              لا تحفظ الإشعارات نص الرسالة أو الموقع. فتح صندوق الإشعارات يحدد الإشعارات المحمّلة كمقروءة.
+              تقرير التسليم لا يثبت أن المستلم قرأ الرسالة. تظل الإشعارات على هاتفك حتى تمسح بيانات التطبيق أو تزيله.
             </p>
             <p>
               يمكنك حذف أي رقم من داخل فينك. ولمسح كل البيانات المحلية، استخدم
               <strong>إعدادات أندرويد ← التطبيقات ← فينك ← التخزين ← مسح البيانات</strong>، أو أزل التطبيق.
-              ولأن فينك لا ينشئ حسابًا ولا يملك قاعدة بيانات للمستخدمين على خادم، فلا توجد نسخة أخرى لدينا تحتاج
-              إلى تقديم طلب منفصل لحذفها.
+              لا ينشئ فينك حسابًا أو ملفًا سحابيًا. يؤدي مسح بيانات التطبيق أو إزالته إلى حذف السجلات التي حفظها
+              فينك على ذلك الجهاز، مع بقاء أي نسخ وصلت بالفعل إلى مستلمي الرسائل أو شركات الاتصالات أو خدمات الخرائط.
             </p>
           </section>
 
@@ -1290,8 +1330,9 @@
             <span class="section-number">08 / التحكم</span>
             <h2>اختياراتك</h2>
             <ul>
-              <li>تشغيل ردود الموقع وتنبيهات تغيير الشريحة أو إيقافها من داخل فينك.</li>
-              <li>إضافة الأرقام أو تعديلها أو تعطيلها أو حذفها.</li>
+              <li>تشغيل الرد التلقائي بالموقع أو إيقافه من داخل فينك. لا يمكن تفعيل تنبيهات تغيير الشريحة أو إغلاق الهاتف في هذه النسخة.</li>
+              <li>إضافة الأرقام المسموح لها والأشخاص الذين تطلب موقعهم أو تعديلهم أو حذفهم.</li>
+              <li>حذف طلب واحد أو عدة طلبات موقع من السجل.</li>
               <li>اختيار الشرائح التي يجوز استخدامها لاستقبال رسائل التطبيق أو إرسالها.</li>
               <li>رفض إذن جهات الاتصال الاختياري وإدخال الأسماء والأرقام يدويًا.</li>
               <li>سحب أذونات الموقع أو الرسائل أو الهاتف أو جهات الاتصال أو الإشعارات في أي وقت من إعدادات أندرويد.</li>
@@ -1307,8 +1348,9 @@
             <span class="section-number">09 / الأمان</span>
             <h2>الأمان وحدود الخدمة</h2>
             <p>
-              يقصر فينك التخزين على المساحة الخاصة بالتطبيق في أندرويد، ولا يشغّل قاعدة حسابات سحابية. نتخذ إجراءات
-              تقنية معقولة، لكن لا توجد وسيلة تخزين أو شبكة هاتف أو جهاز آمنة بنسبة مئة بالمئة.
+              يحتفظ فينك بحالة الرسائل والشرائح والأرقام والطلبات والموقع داخل المساحة الخاصة بالتطبيق في أندرويد،
+              ولا ينشئ حسابًا أو قاعدة بيانات سحابية. نتخذ إجراءات تقنية معقولة، لكن لا توجد وسيلة تخزين أو شبكة
+              هاتف أو خدمة خرائط أو جهاز آمنة بنسبة مئة بالمئة.
             </p>
             <ul>
               <li>قد تطّلع شركة الاتصالات أو مسؤول الجهاز أو برمجيات ضارة أو خدمات قراءة الإشعارات أو أي شخص يصل إلى أحد الهاتفين على رسائل SMS.</li>
@@ -1322,8 +1364,8 @@
             <span class="section-number">10 / الأطفال</span>
             <h2>خصوصية الأطفال</h2>
             <p>
-              فينك غير مصمم أو موجّه للأطفال دون 13 عامًا. ولا نشغّل خادمًا يجمع عن قصد بيانات شخصية منهم.
-              ينبغي لولي الأمر الإشراف على استخدام القاصر وتحديد الأرقام والأذونات المناسبة له. إذا كنت تعتقد أن
+              فينك غير مصمم أو موجّه للأطفال دون 13 عامًا. ينبغي لولي الأمر الإشراف
+              على استخدام القاصر وتحديد الأرقام والأذونات المناسبة له. إذا كنت تعتقد أن
               طفلًا أرسل بيانات مباشرة إلى المطوّر، فتواصل معنا لمعالجة الأمر.
             </p>
           </section>
