@@ -678,7 +678,7 @@
           <li>No account required</li>
           <li>Your saved information stays on your phone</li>
         </ul>
-        <p class="hero-copy">Last updated: <time datetime="2026-10-05">October 5, 2026</time></p>
+        <p class="hero-copy">Last updated: <time datetime="2026-11-15">November 15, 2026</time></p>
       </section>
 
       <div class="policy-layout">
@@ -712,6 +712,9 @@
                 <li>Automatic replies share your location by SMS only with a number you have allowed, while the service is enabled and the receiving SIM is selected.</li>
                 <li>SMS requests do not need internet data. Viewing an online map uses the map provider's services and shares the information needed to display that area.</li>
                 <li>Feenak has no advertising or usage analytics, and we do not sell your personal data.</li>
+                <li>The current message workflow requires compatible versions of Feenak and Google Play services on both phones. Feenak does not request permission to read SMS history or receive all incoming SMS.</li>
+                <li>A listening service runs while automatic replies are enabled or you are waiting for a location. You can stop it. Location is obtained for an authorized request, not continuously while listening.</li>
+                <li>Feenak shows a notification after a location reply is sent when system notification settings allow it. Disabling notifications does not disable automatic replies.</li>
               </ul>
             </div>
             <div class="important-note">
@@ -741,11 +744,7 @@
               <div class="data-item">
                 <h3>Location</h3>
                 <p>
-                  Your phone's location is used to answer an allowed person's request when automatic replies are
-                  enabled. Feenak may use a recent available location if a fresh one cannot be obtained promptly.
-                  Locations you receive from others are saved with your request history. Feenak does not continuously
-                  track your movements. The time a reply reaches your phone does not necessarily show how recently
-                  the other phone determined its location.
+                  Your phone&#x27;s location is used to answer an allowed person&#x27;s request when automatic replies are enabled, including when the app is closed or not in use. Feenak may use a recent available location if a fresh one cannot be obtained promptly. The listening service does not continuously obtain your location or track your movements. Locations received from others are saved with your request history. The time a reply reaches your phone does not necessarily show how recently the other phone determined its location.
                 </p>
               </div>
               <div class="data-item">
@@ -759,9 +758,7 @@
               <div class="data-item">
                 <h3>New incoming and outgoing SMS</h3>
                 <p>
-                  For the core workflow, Feenak handles the sender or recipient number, the selected SIM, the exact
-                  request word “Feenak” or “فينك,” coordinate replies, delivery results, and pending retry state.
-                  Feenak does not request permission to read your stored SMS inbox or message history.
+                  Feenak handles location requests and coordinate replies created by compatible versions of the app. These messages contain an app identifier and a request reference used to route and match the exchange. The app handles the sender or recipient number, selected SIM, coordinates in a reply, sending and delivery results, and pending retry state. Google Play services supplies matching incoming app messages and the sender number when available. Feenak does not request permission to read your SMS inbox or message history, or to receive all incoming SMS. Unrelated messages are ignored and not stored.
                 </p>
               </div>
               <div class="data-item">
@@ -783,8 +780,7 @@
               <div class="data-item">
                 <h3>App settings and message progress</h3>
                 <p>
-                  Language, theme, enabled features, selected SIMs, pending location-request state, and queued SMS
-                  replies. These records remain in Android's private app storage on your device.
+                  Language, theme, enabled features, selected SIMs, your disclosure choice, pending location-request references and progress, and queued SMS replies. These records remain in Android&#x27;s private app storage on your device.
                 </p>
               </div>
             </div>
@@ -801,6 +797,9 @@
               <li>Choose the correct SIM on multi-SIM phones and detect when an installed SIM changes.</li>
               <li>Queue an outgoing reply after a temporary mobile-network failure and retry it when cellular service is available.</li>
               <li>Keep your settings and trusted-number list available between app launches and device restarts.</li>
+              <li>Match a coordinate reply to the request you made and prevent the same app request from producing duplicate replies. A request without a usable sender number is rejected; an app identifier alone never authorizes location sharing.</li>
+              <li>Listen for app messages while you have enabled automatic replies or started a location request that is still pending. The service maintains its listening session and provides an ongoing status notification with a Stop action when Android permits notification display.</li>
+              <li>Record an allowed incoming request in the in-app log before obtaining or sending your location, then show a system notification after a location reply is sent when notifications are enabled. System notification text does not include coordinates.</li>
             </ul>
             <p>
               Feenak does not use personal or sensitive information for advertising, analytics, profiling,
@@ -816,6 +815,10 @@
               When a location request or reply is sent, the destination number and message are provided to
               Android's SMS service, your selected mobile carrier, intermediary networks, and the recipient. Standard
               carrier fees may apply. SMS is not end-to-end encrypted by Feenak.
+            </p>
+            <h3>Google Play services and app messages</h3>
+            <p>
+              Feenak uses Google Play services on your phone to receive SMS addressed to the app. This service makes a matching message and the available sender number accessible to Feenak without giving the app access to your SMS history or every incoming message. Feenak processes its valid app messages only. Google Play services is provided by Google and is subject to <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google's Privacy Policy</a>.
             </p>
             <h3>Google location services</h3>
             <p>
@@ -851,10 +854,7 @@
             <span class="section-number">06 / Permissions</span>
             <h2>Android permissions and their purpose</h2>
             <p>
-              Foreground location is requested in Android's native permission dialog, separately from background
-              access. Background access is explained when you choose to enable automatic replies; on Android 11
-              and later it must be granted in app settings. Contact access is requested only for import. If Android
-              stops showing a permission prompt after repeated denial, you can restore access in app settings.
+              Before the SMS, location, and notification permission prompts, Feenak displays an explanation of their purpose and asks for your agreement. Foreground location is requested in Android&#x27;s native permission dialog, separately from background access. Background access is explained when you choose to enable automatic replies; on Android 11 and later it must be granted in app settings. Contact access is requested only for import. If Android stops showing a permission prompt after repeated denial, you can restore access in app settings. The current version does not request permission to read SMS history or receive all incoming SMS; app-specific incoming messages use Google Play services.
             </p>
             <div class="table-wrap" role="region" aria-label="Android permissions" tabindex="0">
               <table>
@@ -862,7 +862,7 @@
                   <tr>
                     <th scope="col">Permission or capability</th>
                     <th scope="col">Why Feenak uses it</th>
-                    <th scope="col">If denied</th>
+                    <th scope="col">If access is unavailable</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -877,9 +877,9 @@
                     <td>Automatic replies cannot be enabled. Managing contacts and requesting another phone's location remain available with their required permissions.</td>
                   </tr>
                   <tr>
-                    <td>Receive SMS</td>
-                    <td>Recognize a new Feenak command from an authorized number and receive a coordinate response to a request you started.</td>
-                    <td>Automatic incoming commands and coordinate responses do not work.</td>
+                    <td>App-specific messages through Google Play services</td>
+                    <td>Receive matching location requests and replies created by compatible Feenak versions, without permission to receive all SMS or read message history.</td>
+                    <td>Incoming app requests or replies cannot be processed if the required Google Play services support or compatible message format is unavailable. A plain SMS containing only the app name is not a valid request.</td>
                   </tr>
                   <tr>
                     <td>Send SMS</td>
@@ -898,8 +898,8 @@
                   </tr>
                   <tr>
                     <td>Notifications</td>
-                    <td>Show notices about automatic replies and messages waiting to be sent.</td>
-                    <td>Some status notices may not be visible.</td>
+                    <td>Display listening-service status, notices about pending messages, and a notification after a location reply is sent. Location coordinates are not included in these notifications.</td>
+                    <td>Notifications may be hidden by Android or channel settings. Automatic replies can continue; turn them off in Feenak if you do not want your location sent.</td>
                   </tr>
                   <tr>
                     <td>Internet</td>
@@ -908,8 +908,13 @@
                   </tr>
                   <tr>
                     <td>Start after reboot</td>
-                    <td>Restore enabled local monitoring and queued SMS retry work after the device restarts.</td>
-                    <td>Features may require opening Feenak again after reboot.</td>
+                    <td>Attempt to restore previously enabled listening and queued SMS retry work after the device restarts, subject to Android restrictions.</td>
+                    <td>You may need to open Feenak again after reboot before listening can resume.</td>
+                  </tr>
+                  <tr>
+                    <td>Listening and location service</td>
+                    <td>Keep listening while automatic replies are enabled or an outgoing location request is pending. Location access is used only while preparing an authorized location reply. The service offers a Stop action in its ongoing notification.</td>
+                    <td>Stopping or restricting the service can prevent requests from being received or replies from being completed. It does not provide continuous movement tracking.</td>
                   </tr>
                 </tbody>
               </table>
@@ -925,11 +930,7 @@
               until you change them, clear the app's data, or uninstall Feenak.
             </p>
             <p>
-              Feenak checks new location messages to carry out your requests; it does not keep a separate copy of
-              your SMS inbox. Temporary unsent replies may be kept on your phone and retried when mobile service
-              returns, subject to your current permissions and choices. Retrying a request sends a new SMS and may
-              incur another carrier charge. Switching off replies cannot recall a message already sent. Downloaded
-              map images may remain on your phone until the app's stored data is cleared.
+              Feenak processes its app-specific location messages and does not keep a separate copy of your SMS inbox. Pending requests retain the references needed to match a reply and prevent duplicates. Temporary unsent replies, including their coordinates, may be kept on your phone and retried when mobile service returns, subject to your current permissions, allowed list, SIM selection, and automatic-reply choice. Retry eligibility is limited by message age and the number of attempts. Retrying a request sends a new SMS and may incur another carrier charge. Switching off replies cannot recall a message already sent. Downloaded map images may remain on your phone until the app&#x27;s stored data is cleared.
             </p>
             <p>
               Your location requests and their results are saved automatically on your phone, including the person's
@@ -940,13 +941,7 @@
               app's data, or uninstall Feenak. It is not uploaded to us.
             </p>
             <p>
-              Notifications on your phone show requests from your allowed contacts, including attempts while
-              automatic replies are off. They contain the person's name and number, the time of the attempt,
-              whether you have opened the notification, and the reply's status. When known, they can show that
-              replies were off or that sending failed; a sending failure cannot establish whether the cause was
-              network coverage or insufficient balance. Notifications do not store the SMS text or location.
-              Opening the inbox marks its loaded notifications as read. A delivery report does not prove the
-              recipient read the message. Notifications remain on your phone until you clear app data or uninstall.
+              The in-app notifications log records valid location requests from allowed numbers that reach Feenak while its listening service is active. If the listener remains active for a pending outgoing request, the log may also record an allowed incoming request while automatic replies are off; no location reply is sent in that case. Unrelated messages and requests from unlisted or unidentifiable senders are not stored in this log. Entries contain the person&#x27;s name and number, request reference, time, read state, and reply status, but not the original SMS body or coordinates. When known, a status can show that replies were off or sending failed; failure alone does not establish whether the cause was coverage or insufficient balance. Opening the in-app inbox marks its loaded entries as read. A delivery report does not prove the recipient read the message. Log entries remain until you clear app data or uninstall. A separate Android notification is shown after a location reply is sent if system settings allow it; dismissing that notification does not delete the in-app entry.
             </p>
             <p>
               You can remove individual contacts inside Feenak. To erase all locally stored app data, use
@@ -967,6 +962,8 @@
               <li>Decline optional contact access and enter numbers manually.</li>
               <li>Revoke location, SMS, phone, contacts, or notification permissions at any time in Android Settings.</li>
               <li>Clear app data or uninstall Feenak to remove all locally stored records.</li>
+              <li>Use Stop in the listening-service notification to turn automatic replies off and cancel the pending outgoing location request, if any.</li>
+              <li>Closing the app screen or disabling notifications does not turn automatic replies off. Turn replies off explicitly to stop sharing your own location; listening may continue while an outgoing request you made is still pending.</li>
             </ul>
             <p>
               Revoking a permission can stop the feature that depends on it. Removing a message already delivered by
@@ -987,6 +984,8 @@
               <li>Phone numbers can be reassigned or spoofed in some network conditions; only authorize people you trust.</li>
               <li>GPS and network-derived locations can be delayed, missing, or inaccurate.</li>
               <li>Feenak should not be used as the sole method for emergency response, personal safety, or asset recovery.</li>
+              <li>Both phones need compatible Feenak versions and supported Google Play services for app messages. The app identifier routes messages; it does not encrypt them or replace the allowed-number check.</li>
+              <li>The listening service attempts to keep listening available, but Android battery restrictions, service interruption, or process termination can delay or prevent requests and replies. Reception is not guaranteed to be continuous or immediate. Force-stopping Feenak prevents it from operating until you open it again.</li>
             </ul>
           </section>
 
@@ -1053,7 +1052,7 @@
           <li>لا تحتاج إلى حساب</li>
           <li>بياناتك المحفوظة تبقى على هاتفك</li>
         </ul>
-        <p class="hero-copy">آخر تحديث: <time datetime="2026-10-05">5 أكتوبر 2026</time></p>
+        <p class="hero-copy">آخر تحديث: <time datetime="2026-11-15">15 نوفمبر 2026</time></p>
       </section>
 
       <div class="policy-layout">
@@ -1087,6 +1086,9 @@
                 <li>يرسل الرد التلقائي موقعك برسالة نصية إلى رقم سمحت له فقط، عندما يكون الرد مفعّلًا وتكون شريحة استقبال الطلب مختارة.</li>
                 <li>طلب الموقع بالرسائل لا يحتاج إلى الإنترنت. عرض خريطة متصلة يستخدم خدمات مزوّد الخرائط ويشارك معه المعلومات اللازمة لعرض تلك المنطقة.</li>
                 <li>لا يحتوي التطبيق على إعلانات أو أدوات تحليل استخدام، ولا يبيع المطوّر البيانات الشخصية.</li>
+                <li>تحتاج طريقة تبادل الرسائل الحالية إلى نسخ متوافقة من فينك وخدمات Google Play على الهاتفين. لا يطلب فينك إذن قراءة سجل الرسائل أو استقبال جميع الرسائل الواردة.</li>
+                <li>تعمل خدمة استماع أثناء تفعيل الرد التلقائي أو انتظار موقع طلبته، ويمكنك إيقافها. يُحدد الموقع للطلب المسموح فقط، وليس باستمرار أثناء الاستماع.</li>
+                <li>يعرض فينك إشعارًا بعد إرسال الرد بالموقع عندما تسمح إعدادات إشعارات الهاتف بذلك. تعطيل الإشعارات لا يعطّل الردود التلقائية.</li>
               </ul>
             </div>
             <div class="important-note">
@@ -1116,10 +1118,7 @@
               <div class="data-item">
                 <h3>بيانات الموقع</h3>
                 <p>
-                  يستخدم فينك موقع هاتفك للرد على طلب من شخص سمحت له عندما يكون الرد التلقائي مفعّلًا.
-                  قد يستخدم موقعًا متاحًا حديثًا إذا تعذّر الحصول على موقع جديد بسرعة. تُحفظ المواقع التي تستلمها
-                  من الآخرين ضمن سجل طلباتك. لا يتتبع فينك تحركاتك باستمرار، ووقت وصول الرد إلى هاتفك لا يثبت
-                  بالضرورة مدى حداثة الموقع الذي حدده الهاتف الآخر.
+                  يستخدم فينك موقع هاتفك للرد على طلب من شخص سمحت له عندما يكون الرد التلقائي مفعّلًا، بما في ذلك عندما يكون التطبيق مغلقًا أو غير مستخدم. قد يستخدم موقعًا متاحًا حديثًا إذا تعذّر الحصول على موقع جديد بسرعة. لا تحدد خدمة الاستماع موقعك باستمرار ولا تتتبع تحركاتك. تُحفظ المواقع التي تستلمها من الآخرين ضمن سجل طلباتك. وقت وصول الرد إلى هاتفك لا يثبت بالضرورة مدى حداثة الموقع الذي حدده الهاتف الآخر.
                 </p>
               </div>
               <div class="data-item">
@@ -1133,9 +1132,7 @@
               <div class="data-item">
                 <h3>الرسائل النصية الجديدة الواردة والصادرة</h3>
                 <p>
-                  لتنفيذ الوظيفة الأساسية، يتعامل فينك مع رقم المرسل أو المستلم، والشريحة المستخدمة، وكلمة الطلب
-                  «فينك» أو “Feenak”، ورسالة الإحداثيات، ونتيجة الإرسال، وحالة إعادة المحاولة. لا يطلب التطبيق إذنًا
-                  لقراءة صندوق رسائلك المحفوظ أو سجل الرسائل السابق.
+                  يتعامل فينك مع طلبات الموقع وردود الإحداثيات التي تنشئها نسخ متوافقة من التطبيق. تحتوي هذه الرسائل على معرّف للتطبيق ورقم مرجعي للطلب لتوجيه الرسالة وربطها بالطلب الصحيح. يتعامل التطبيق مع رقم المرسل أو المستلم والشريحة المستخدمة وإحداثيات الرد ونتائج الإرسال والتسليم وحالة إعادة المحاولة. تُسلّم خدمات Google Play رسائل التطبيق الواردة المطابقة ورقم المرسل عندما يكون متاحًا. لا يطلب فينك إذن قراءة صندوق الرسائل أو سجلها، ولا إذن استقبال جميع رسائل SMS الواردة. تُتجاهل الرسائل الأخرى ولا تُحفظ.
                 </p>
               </div>
               <div class="data-item">
@@ -1156,8 +1153,7 @@
               <div class="data-item">
                 <h3>إعدادات التطبيق وحالة الرسائل</h3>
                 <p>
-                  اللغة والمظهر والميزات المفعّلة والشرائح المختارة وحالة طلب الموقع الجاري وطابور رسائل SMS.
-                  تظل هذه السجلات داخل المساحة الخاصة بالتطبيق على جهازك.
+                  اللغة والمظهر والميزات المفعّلة والشرائح المختارة واختيارك بشأن الإفصاح وأرقام الطلبات الجارية وحالتها وطابور ردود SMS. تظل هذه السجلات داخل المساحة الخاصة بالتطبيق على جهازك.
                 </p>
               </div>
             </div>
@@ -1174,6 +1170,9 @@
               <li>اختيار الشريحة الصحيحة في الأجهزة متعددة الشرائح والتعرّف على تغيير شريحة مثبتة.</li>
               <li>وضع الرد الصادر في طابور بعد تعذّر مؤقت في شبكة الهاتف، ثم إعادة المحاولة عند عودة الخدمة.</li>
               <li>الاحتفاظ بإعداداتك وقائمة الأرقام بين مرات فتح التطبيق وبعد إعادة تشغيل الهاتف.</li>
+              <li>ربط رد الإحداثيات بالطلب الذي بدأته ومنع تكرار الرد على الطلب نفسه. يُرفض الطلب إذا تعذّر التحقق من رقم المرسل؛ ولا يمنح معرّف التطبيق وحده أي شخص حق معرفة موقعك.</li>
+              <li>الاستماع لرسائل التطبيق أثناء تفعيل الرد التلقائي أو انتظار نتيجة طلب موقع بدأته. تحافظ الخدمة على جلسة الاستماع، وتعرض إشعار حالة مستمرًا مع زر للإيقاف عندما يسمح أندرويد بعرضه.</li>
+              <li>تسجيل الطلب الوارد من رقم مسموح له داخل التطبيق قبل الحصول على موقعك أو إرساله، ثم عرض إشعار نظام بعد إرسال الرد بالموقع عند تفعيل الإشعارات. لا يتضمن نص إشعار النظام الإحداثيات.</li>
             </ul>
             <p>
               لا يستخدم فينك البيانات الشخصية أو الحساسة للإعلانات أو تحليل السلوك أو إنشاء الملفات التعريفية أو
@@ -1189,6 +1188,10 @@
               عند إرسال طلب موقع أو الرد عليه، يسلّم التطبيق رقم المستلم والرسالة إلى خدمة الرسائل في أندرويد،
               وشركة الاتصالات المختارة، والشبكات الوسيطة، ثم إلى المستلم. قد تُطبق رسوم الرسائل المعتادة، ولا يضيف
               فينك تشفيرًا شاملًا بين الطرفين إلى رسائل SMS.
+            </p>
+            <h3>خدمات Google Play ورسائل التطبيق</h3>
+            <p>
+              يستخدم فينك خدمات Google Play على هاتفك لتلقي رسائل SMS الموجّهة إلى التطبيق. تتيح هذه الخدمة لفينك الرسالة المطابقة ورقم المرسل المتاح، دون منحه الوصول إلى سجل رسائلك أو جميع الرسائل الواردة. يعالج فينك رسائل التطبيق الصحيحة فقط. تُقدم Google هذه الخدمات وتسري عليها <a href="https://policies.google.com/privacy?hl=ar" rel="noopener noreferrer">سياسة خصوصية Google</a>.
             </p>
             <h3>خدمات الموقع من Google</h3>
             <p>
@@ -1224,10 +1227,7 @@
             <span class="section-number">06 / الأذونات</span>
             <h2>أذونات أندرويد وسبب طلبها</h2>
             <p>
-              يطلب فينك إذن الموقع أثناء الاستخدام من نافذة أندرويد المعتادة، بصورة منفصلة عن إذن الخلفية.
-              يظهر شرح إذن الخلفية عندما تختار تشغيل الرد التلقائي؛ وفي أندرويد 11 وما بعده يجب السماح به
-              من إعدادات التطبيق. يُطلب إذن جهات الاتصال عند الاستيراد فقط. وإذا توقف أندرويد عن عرض طلب إذن
-              بعد رفضه أكثر من مرة، يمكنك السماح به من إعدادات التطبيق.
+              قبل عرض طلبات أذونات الرسائل والموقع والإشعارات، يعرض فينك شرحًا لسبب استخدامها ويطلب موافقتك. يُطلب إذن الموقع أثناء الاستخدام من نافذة أندرويد المعتادة، بصورة منفصلة عن إذن الخلفية. يظهر شرح إذن الخلفية عندما تختار تشغيل الرد التلقائي؛ وفي أندرويد 11 وما بعده يجب السماح به من إعدادات التطبيق. يُطلب إذن جهات الاتصال عند الاستيراد فقط. وإذا توقف أندرويد عن عرض طلب إذن بعد رفضه أكثر من مرة، يمكنك السماح به من إعدادات التطبيق. لا تطلب النسخة الحالية إذن قراءة سجل الرسائل أو استقبال جميع الرسائل؛ وتعتمد رسائل التطبيق الواردة على خدمات Google Play.
             </p>
             <div class="table-wrap" role="region" aria-label="أذونات أندرويد" tabindex="0">
               <table>
@@ -1235,7 +1235,7 @@
                   <tr>
                     <th scope="col">الإذن أو الإمكانية</th>
                     <th scope="col">سبب الاستخدام</th>
-                    <th scope="col">ما الذي يحدث عند الرفض؟</th>
+                    <th scope="col">ما الذي يحدث عند عدم توفر الإمكانية؟</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -1250,9 +1250,9 @@
                     <td>لن تتمكن من تشغيل الرد التلقائي. تظل إدارة الأرقام وطلب موقع هاتف آخر متاحة مع منح الأذونات الخاصة بها.</td>
                   </tr>
                   <tr>
-                    <td>استقبال SMS</td>
-                    <td>التعرّف على طلب فينك الجديد من رقم مصرح له، واستقبال رد الإحداثيات لطلب بدأته أنت.</td>
-                    <td>لن تعمل الطلبات الواردة وردود الإحداثيات تلقائيًا.</td>
+                    <td>رسائل التطبيق عبر خدمات Google Play</td>
+                    <td>تلقي طلبات الموقع والردود المطابقة التي تنشئها نسخ فينك المتوافقة، دون إذن استقبال جميع الرسائل أو قراءة سجلها.</td>
+                    <td>يتعذر التعامل مع الطلبات أو الردود الواردة دون دعم خدمات Google Play المطلوب أو صيغة الرسالة المتوافقة. إرسال اسم التطبيق وحده في رسالة عادية لا يُعد طلبًا صالحًا.</td>
                   </tr>
                   <tr>
                     <td>إرسال SMS</td>
@@ -1271,8 +1271,8 @@
                   </tr>
                   <tr>
                     <td>الإشعارات</td>
-                    <td>عرض إشعارات الحالة والتشغيل التي يفرضها أندرويد للأعمال النشطة أو المؤجلة.</td>
-                    <td>قد لا تظهر بعض إشعارات الحالة.</td>
+                    <td>عرض حالة خدمة الاستماع وتنبيهات الرسائل المعلقة وإشعار بعد إرسال الرد بالموقع. لا تحتوي هذه الإشعارات على إحداثيات موقعك.</td>
+                    <td>قد تخفي إعدادات أندرويد أو قناة الإشعارات هذه التنبيهات. يمكن أن يستمر الرد التلقائي؛ أوقفه داخل فينك إذا لم ترد إرسال موقعك.</td>
                   </tr>
                   <tr>
                     <td>الإنترنت</td>
@@ -1281,8 +1281,13 @@
                   </tr>
                   <tr>
                     <td>البدء بعد إعادة التشغيل</td>
-                    <td>استعادة المراقبة المحلية المفعّلة وأعمال إعادة إرسال الرسائل بعد تشغيل الهاتف.</td>
-                    <td>قد تحتاج إلى فتح فينك مرة أخرى بعد إعادة تشغيل الهاتف.</td>
+                    <td>محاولة استعادة الاستماع الذي فعّلته سابقًا وأعمال إعادة إرسال الرسائل بعد تشغيل الهاتف، وفق قيود أندرويد.</td>
+                    <td>قد تحتاج إلى فتح فينك مرة أخرى بعد إعادة تشغيل الهاتف لاستئناف الاستماع.</td>
+                  </tr>
+                  <tr>
+                    <td>خدمة الاستماع والرد بالموقع</td>
+                    <td>مواصلة الاستماع أثناء تفعيل الرد التلقائي أو انتظار نتيجة طلب موقع صادر. يُستخدم الموقع عند تجهيز رد لطلب مسموح فقط. تتيح الخدمة زر إيقاف في إشعارها المستمر.</td>
+                    <td>قد يمنع إيقاف الخدمة أو تقييدها وصول الطلبات أو إتمام الردود. لا تتيح هذه الخدمة تتبع تحركاتك باستمرار.</td>
                   </tr>
                 </tbody>
               </table>
@@ -1298,11 +1303,7 @@
               حتى تعدلها أو تمسح بيانات التطبيق أو تزيله من الهاتف.
             </p>
             <p>
-              يفحص فينك رسائل الموقع الجديدة لتنفيذ طلباتك، ولا يحتفظ بنسخة مستقلة من صندوق رسائلك.
-              قد يحتفظ بالردود التي تعذّر إرسالها مؤقتًا على هاتفك، ويعيد المحاولة عند عودة شبكة الهاتف،
-              وفق أذوناتك واختياراتك الحالية. إعادة طلب الموقع ترسل رسالة جديدة وقد تترتب عليها تكلفة أخرى.
-              إيقاف الرد التلقائي لا يسترجع رسالة أُرسلت بالفعل. قد تبقى صور الخرائط المحمّلة على هاتفك
-              حتى تمسح البيانات المحفوظة للتطبيق.
+              يعالج فينك رسائل الموقع الخاصة بالتطبيق، ولا يحتفظ بنسخة مستقلة من صندوق رسائلك. تحتفظ الطلبات المعلقة بالمراجع اللازمة لربط الرد ومنع التكرار. قد يحتفظ الهاتف مؤقتًا بالردود التي تعذّر إرسالها، بما فيها الإحداثيات، ويعيد المحاولة عند عودة شبكة الهاتف وفق أذوناتك الحالية وقائمة الأرقام المسموح لها واختيار الشريحة وحالة الرد التلقائي. تخضع إعادة المحاولة لحدود تتعلق بعمر الرسالة وعدد المحاولات. إعادة طلب الموقع ترسل رسالة جديدة وقد تترتب عليها تكلفة أخرى. إيقاف الرد التلقائي لا يسترجع رسالة أُرسلت بالفعل. قد تبقى صور الخرائط المحمّلة حتى تمسح البيانات المحفوظة للتطبيق.
             </p>
             <p>
               تُحفظ طلبات موقعك ونتائجها تلقائيًا على هاتفك، بما فيها اسم الشخص ورقمه والشريحة المستخدمة
@@ -1312,11 +1313,7 @@
               يبقى السجل حتى تحذفه أو تمسح بيانات التطبيق أو تزيل فينك. لا نرفع هذه البيانات إلينا.
             </p>
             <p>
-              تعرض إشعارات هاتفك محاولات الأرقام المسموح لها لطلب موقعك، حتى عندما يكون الرد التلقائي مقفولًا.
-              تتضمن اسم الشخص ورقمه ووقت المحاولة وما إذا فتحت الإشعار وحالة الرد. عندما يكون السبب معروفًا،
-              قد يظهر أن الرد كان مقفولًا أو أن الإرسال فشل؛ فشل الإرسال لا يثبت وحده هل السبب الشبكة أم الرصيد.
-              لا تحفظ الإشعارات نص الرسالة أو الموقع. فتح صندوق الإشعارات يحدد الإشعارات المحمّلة كمقروءة.
-              تقرير التسليم لا يثبت أن المستلم قرأ الرسالة. تظل الإشعارات على هاتفك حتى تمسح بيانات التطبيق أو تزيله.
+              يسجل صندوق الإشعارات داخل التطبيق طلبات الموقع الصحيحة من الأرقام المسموح لها التي تصل إلى فينك أثناء عمل خدمة الاستماع. إذا استمر الاستماع لانتظار نتيجة طلب صادر، فقد يُسجّل أيضًا طلب وارد من رقم مسموح له أثناء إيقاف الرد التلقائي؛ ولا يُرسل رد بالموقع في هذه الحالة. لا يُحفظ في هذا السجل نص الرسائل الأخرى أو طلبات الأرقام غير المسموح لها أو التي يتعذر تحديد مرسلها. يتضمن السجل اسم الشخص ورقمه والمرجع الخاص بالطلب ووقته وحالة القراءة والرد، دون نص الرسالة الأصلي أو الإحداثيات. عندما يكون السبب معروفًا، قد يظهر أن الرد كان مقفولًا أو أن الإرسال فشل؛ وفشل الإرسال وحده لا يحدد هل السبب الشبكة أم الرصيد. فتح الصندوق داخل التطبيق يحدد العناصر المحمّلة كمقروءة. تقرير التسليم لا يثبت أن المستلم قرأ الرسالة. تبقى السجلات حتى تمسح بيانات التطبيق أو تزيله. يظهر إشعار أندرويد منفصل بعد إرسال الرد بالموقع إذا سمحت إعدادات النظام؛ وإغلاق هذا الإشعار لا يحذف السجل داخل التطبيق.
             </p>
             <p>
               يمكنك حذف أي رقم من داخل فينك. ولمسح كل البيانات المحلية، استخدم
@@ -1337,6 +1334,8 @@
               <li>رفض إذن جهات الاتصال الاختياري وإدخال الأسماء والأرقام يدويًا.</li>
               <li>سحب أذونات الموقع أو الرسائل أو الهاتف أو جهات الاتصال أو الإشعارات في أي وقت من إعدادات أندرويد.</li>
               <li>مسح بيانات التطبيق أو إزالته للتخلص من جميع السجلات المحفوظة محليًا.</li>
+              <li>استخدام زر الإيقاف في إشعار خدمة الاستماع لإيقاف الرد التلقائي وإلغاء طلب الموقع الصادر المعلق إن وُجد.</li>
+              <li>إغلاق واجهة التطبيق أو تعطيل الإشعارات لا يوقف الرد التلقائي. أوقف الرد بنفسك لمنع مشاركة موقعك؛ وقد يستمر الاستماع أثناء انتظار نتيجة طلب موقع بدأته أنت.</li>
             </ul>
             <p>
               يؤدي سحب الإذن إلى توقف الميزة المعتمدة عليه. أما الرسالة التي سبق أن سلّمتها شركة الاتصالات أو
@@ -1357,6 +1356,8 @@
               <li>قد تُعاد أرقام الهاتف لمستخدمين جدد أو يجري انتحالها في بعض ظروف الشبكة؛ لذلك لا تسمح إلا لمن تثق بهم.</li>
               <li>قد يتأخر الموقع المستخرج من GPS أو الشبكة، أو يتعذر الحصول عليه، أو يكون غير دقيق.</li>
               <li>لا تستخدم فينك وحده للطوارئ أو ضمان السلامة الشخصية أو استرداد الممتلكات.</li>
+              <li>يحتاج الهاتفان إلى نسخ متوافقة من فينك وخدمات Google Play المدعومة لتبادل رسائل التطبيق. يوجّه معرّف التطبيق الرسائل، لكنه لا يشفرها ولا يغني عن التحقق من الرقم المسموح له.</li>
+              <li>تحاول خدمة الاستماع الحفاظ على جاهزية استقبال رسائل التطبيق، لكن قيود البطارية أو توقف الخدمة أو إنهاء أندرويد للتطبيق قد يؤخر الطلبات والردود أو يمنعها. لا نضمن استقبالًا متواصلًا أو فوريًا. الإيقاف الإجباري لفينك يمنع عمله حتى تفتحه مرة أخرى.</li>
             </ul>
           </section>
 
